@@ -37,7 +37,12 @@ class ThirdViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isTranslucent = false
         title = "재무제표 리스트"
+<<<<<<< HEAD
         view.backgroundColor = UIColor.white
+=======
+        view.backgroundColor = .white
+        
+>>>>>>> a4907389efba26e1db31fafff10a92d090a03610
         view.addSubview(dataTable)
         dataTable.reload()
     }

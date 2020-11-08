@@ -7,30 +7,60 @@
 //
 
 import UIKit
+import SearchTextField // https://github.com/apasccon/SearchTextField
 
 class searchCorpVC: UIViewController, UITextFieldDelegate {
     
+<<<<<<< HEAD
     @IBOutlet weak var searchCoperationTextField: UITextField!
     
     var corpCodeStruct: [CorpCodeStruct] = []
     var result: [SearchCorpNameResult] = []
     var list: [SearchCorpNameList] = []
     var dataString: String?
+=======
+    @IBOutlet private weak var searchCoperationTextField: SearchTextField!
+    
+    private var corpCodeStruct: [CorpCodeStruct] = []
+    private var result: [SearchCorpNameResult] = []
+    private var list: [SearchCorpNameList] = []
+    private var dataString: String?
+>>>>>>> a4907389efba26e1db31fafff10a92d090a03610
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
-        let jsonDecoder:JSONDecoder = JSONDecoder()
+        self.setList()
+        self.setupSearchCoperationTextField()
+    }
+    
+    private func setupSearchCoperationTextField() {
+        self.searchCoperationTextField.maxNumberOfResults = 5
+        self.searchCoperationTextField.itemSelectionHandler = { item, itemPosition in
+            self.searchCoperationTextField.text = item[itemPosition].title
+            self.pushToThrirdViewController()
+        }
+    }
+    
+    private func setSearchCoperationTextField(_ dataList: [SearchCorpNameList]) {
+        var suggestionItems: [SearchTextFieldItem] = []
+        for data in self.list {
+            suggestionItems.append(SearchTextFieldItem(title: data.corpName.first ?? ""))
+        }
+        self.searchCoperationTextField.filterItems(suggestionItems)
+    }
+    
+    private func setList() {
         guard let dataAsset: NSDataAsset = NSDataAsset(name: "CorpCodeJsonData") else {
             return print("we don't have any data")
         }
         
         do {
+            let jsonDecoder = JSONDecoder()
             let dataCorpStruct = try jsonDecoder.decode(CorpCodeStruct.self, from: dataAsset.data)
-            let dataResult = dataCorpStruct.result
-            let dataList = dataResult.list
-            self.list = dataList
+            
+            self.list = dataCorpStruct.result.list
+            self.setSearchCoperationTextField(dataCorpStruct.result.list)
             
         } catch {
             print(error.localizedDescription)
@@ -38,6 +68,7 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func clickSearchButton(_ sender: UIButton) {
+<<<<<<< HEAD
 
         if self.searchCoperationTextField.text != "" {
             var isShowAlert: Bool = true
@@ -52,19 +83,42 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
                     thirdViewController.corpName = factor.corpName.first
                     thirdViewController.corpCode = factor.corpCode.first
                     self.navigationController?.pushViewController(thirdViewController, animated: true)
-                }
-            }
-            
-            if isShowAlert {
-                let alertController = UIAlertController(title: "알림창", message: "기업 이름을 입력해주세요!", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "경고", style: .destructive, handler: nil))
-                self.present(alertController, animated: true, completion: nil)
-            }
-            
-        } else {
-            let alertController = UIAlertController(title: "알림창", message: "기업 이름을 입력해주세요!", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "경고", style: .destructive, handler: nil))
-            self.present(alertController, animated: true, completion: nil)
+=======
+        guard self.searchCoperationTextField.text != "" else {
+            self.showAlert()
+            return
         }
+        
+        self.pushToThrirdViewController()
+    }
+    
+    private func pushToThrirdViewController() {
+        var isShowAlert: Bool = true
+        
+        for factor in list {
+            //TODO: for 문 안에서 여러번 push 하는 경우 어떻게 처리할지 고민!
+            if factor.corpName.first == self.searchCoperationTextField.text {
+                isShowAlert = false
+                
+                guard let thirdViewController = storyboard?.instantiateViewController(identifier: "ThirdViewController") as? ThirdViewController else {
+                    return
+>>>>>>> a4907389efba26e1db31fafff10a92d090a03610
+                }
+                thirdViewController.corpName = factor.corpName.first
+                thirdViewController.corpCode = factor.corpCode.first
+                
+                self.navigationController?.pushViewController(thirdViewController, animated: true)
+            }
+        }
+        
+        if isShowAlert {
+            self.showAlert()
+        }
+    }
+    
+    private func showAlert() {
+        let alertController = UIAlertController(title: "알림창", message: "기업 이름을 입력해주세요!", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "경고", style: .destructive, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
     }
 }

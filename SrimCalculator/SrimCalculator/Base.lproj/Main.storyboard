@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dc8-PV-aGn">
-                                <rect key="frame" x="30" y="394" width="40" height="40"/>
+                                <rect key="frame" x="30" y="354" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="3gM-7e-LwM"/>
                                     <constraint firstAttribute="height" constant="40" id="AfI-j6-EIn"/>
@@ -29,8 +29,8 @@
                                     <action selector="clickSearchButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ek-jF-6Jp"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="주식명, 종목(주식) 코드 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRk-DY-53F">
-                                <rect key="frame" x="75" y="394" width="309" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="주식명, 종목(주식) 코드 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRk-DY-53F" customClass="SearchTextField" customModule="SearchTextField">
+                                <rect key="frame" x="75" y="354" width="309" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xg8-Ad-oio"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8sa-cE-DwM">
-                                <rect key="frame" x="92" y="519" width="230" height="151"/>
+                                <rect key="frame" x="92" y="479" width="230" height="151"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="quz-4n-EWh">
                                         <rect key="frame" x="0.0" y="0.0" width="230" height="70.5"/>
@@ -219,7 +219,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dc8-PV-aGn" firstAttribute="top" secondItem="mRk-DY-53F" secondAttribute="top" id="2bR-nG-Wbs"/>
-                            <constraint firstItem="mRk-DY-53F" firstAttribute="top" secondItem="chK-9l-4fh" secondAttribute="bottom" constant="90" id="GdW-Ju-cHd"/>
+                            <constraint firstItem="mRk-DY-53F" firstAttribute="top" secondItem="chK-9l-4fh" secondAttribute="bottom" constant="50" id="GdW-Ju-cHd"/>
                             <constraint firstItem="9Aj-9T-XYH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J0R-2D-33g"/>
                             <constraint firstItem="chK-9l-4fh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oce-eB-F0X"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mRk-DY-53F" secondAttribute="trailing" constant="30" id="TVE-Hu-lhZ"/>
