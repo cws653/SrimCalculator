@@ -66,6 +66,4 @@ class FourthViewController: UIViewController {
             }
         }
     }
-    
-    
 }

@@ -23,7 +23,7 @@ class ThirdViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViews()
         setupConstraints()
         setupAPIData()
@@ -37,7 +37,7 @@ class ThirdViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isTranslucent = false
         title = "재무제표 리스트"
-        view.backgroundColor = UIColor.red
+        view.backgroundColor = UIColor.white
         view.addSubview(dataTable)
         dataTable.reload()
     }
@@ -84,6 +84,7 @@ class ThirdViewController: UIViewController {
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
         DispatchQueue.main.async {
             self.dataSource.append(dataSource)
+//            self.dataSource.sort { ($0.first ?? DataTableValueType.int(1)) < ($1.first ?? DataTableValueType.int(1)) }
             self.dataTable.reload()
         }
     }
@@ -120,5 +121,9 @@ extension ThirdViewController: SwiftDataTableDataSource {
 extension ThirdViewController: SwiftDataTableDelegate {
     func didSelectItem(_ dataTable: SwiftDataTable, indexPath: IndexPath) {
         debugPrint("did select item at indexPath: \(indexPath) dataValue: \(dataTable.data(for: indexPath))")
+    }
+    
+    func heightForSectionFooter(in dataTable: SwiftDataTable) -> CGFloat {
+        return 0.1
     }
 }

@@ -11,7 +11,7 @@ import UIKit
 class searchCorpVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var searchCoperationTextField: UITextField!
-    //
+    
     var corpCodeStruct: [CorpCodeStruct] = []
     var result: [SearchCorpNameResult] = []
     var list: [SearchCorpNameList] = []
@@ -40,7 +40,7 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
     @IBAction func clickSearchButton(_ sender: UIButton) {
 
         if self.searchCoperationTextField.text != "" {
-            var isShowAlert: Bool = false
+            var isShowAlert: Bool = true
             
             for factor in list {
                 
@@ -52,8 +52,6 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
                     thirdViewController.corpName = factor.corpName.first
                     thirdViewController.corpCode = factor.corpCode.first
                     self.navigationController?.pushViewController(thirdViewController, animated: true)
-                } else {
-                    isShowAlert = true
                 }
             }
             
