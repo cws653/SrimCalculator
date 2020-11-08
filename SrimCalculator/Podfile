@@ -6,6 +6,7 @@ target 'SrimCalculator' do
   use_frameworks!
 
   pod 'SwiftDataTables'
+  pod "SearchTextField"
   # Pods for SrimCalculator
 
 end

@@ -1,16 +1,20 @@
 PODS:
+  - SearchTextField (1.2.4)
   - SwiftDataTables (0.8.1)
 
 DEPENDENCIES:
+  - SearchTextField
   - SwiftDataTables
 
 SPEC REPOS:
   trunk:
+    - SearchTextField
     - SwiftDataTables
 
 SPEC CHECKSUMS:
+  SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftDataTables: 9e5f2ad7e7430c8008a31e66a0237ed29bf6fca8
 
-PODFILE CHECKSUM: 099e2cf738a41cfb3e73b9e21cf1437fa1cdf07a
+PODFILE CHECKSUM: 0d733c0aef75f3244b03afaa08698cf79eb3cdc1
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.9.3
