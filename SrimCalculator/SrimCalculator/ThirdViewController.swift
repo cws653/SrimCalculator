@@ -65,7 +65,6 @@ class ThirdViewController: UIViewController {
                 let numberFormatter = NumberFormatter()
                 numberFormatter.numberStyle = .decimal
                 
-                
                 for factor in financialData {
                     if factor.accountNm.contains("매출액") {
                         let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
@@ -134,6 +133,14 @@ extension ThirdViewController: SwiftDataTableDataSource {
 extension ThirdViewController: SwiftDataTableDelegate {
     func didSelectItem(_ dataTable: SwiftDataTable, indexPath: IndexPath) {
         debugPrint("did select item at indexPath: \(indexPath) dataValue: \(dataTable.data(for: indexPath))")
+    }
+    
+    func dataTable(_ dataTable: SwiftDataTable, widthForColumnAt index: Int) -> CGFloat {
+        if index == 0 {
+            return 100
+        } else {
+            return 150
+        }
     }
     
     func heightForSectionFooter(in dataTable: SwiftDataTable) -> CGFloat {
