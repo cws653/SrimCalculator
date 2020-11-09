@@ -7,25 +7,16 @@
 //
 
 import UIKit
-import SearchTextField // https://github.com/apasccon/SearchTextField
+import SearchTextField  // https://github.com/apasccon/SearchTextField
 
 class searchCorpVC: UIViewController, UITextFieldDelegate {
     
-<<<<<<< HEAD
-    @IBOutlet weak var searchCoperationTextField: UITextField!
-    
-    var corpCodeStruct: [CorpCodeStruct] = []
-    var result: [SearchCorpNameResult] = []
-    var list: [SearchCorpNameList] = []
-    var dataString: String?
-=======
     @IBOutlet private weak var searchCoperationTextField: SearchTextField!
     
     private var corpCodeStruct: [CorpCodeStruct] = []
     private var result: [SearchCorpNameResult] = []
     private var list: [SearchCorpNameList] = []
     private var dataString: String?
->>>>>>> a4907389efba26e1db31fafff10a92d090a03610
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,22 +59,7 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func clickSearchButton(_ sender: UIButton) {
-<<<<<<< HEAD
-
-        if self.searchCoperationTextField.text != "" {
-            var isShowAlert: Bool = true
-            
-            for factor in list {
-                
-                if factor.corpName.first == self.searchCoperationTextField.text {
-                    isShowAlert = false
-                    guard let thirdViewController = storyboard?.instantiateViewController(identifier: "ThirdViewController") as? ThirdViewController else {
-                        return
-                    }
-                    thirdViewController.corpName = factor.corpName.first
-                    thirdViewController.corpCode = factor.corpCode.first
-                    self.navigationController?.pushViewController(thirdViewController, animated: true)
-=======
+        
         guard self.searchCoperationTextField.text != "" else {
             self.showAlert()
             return
@@ -102,7 +78,6 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
                 
                 guard let thirdViewController = storyboard?.instantiateViewController(identifier: "ThirdViewController") as? ThirdViewController else {
                     return
->>>>>>> a4907389efba26e1db31fafff10a92d090a03610
                 }
                 thirdViewController.corpName = factor.corpName.first
                 thirdViewController.corpCode = factor.corpCode.first

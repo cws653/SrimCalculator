@@ -11,10 +11,9 @@ import SwiftDataTables
 
 class ThirdViewController: UIViewController {
     
-    
     lazy var dataTable = makeDataTable()
     var dataSource: DataTableContent = []
-    let headerTitles = ["년도","매출액", "영업이익", "당기순이익", "EPS"]
+    let headerTitles = ["년도","매출액(억)", "영업이익(억)", "당기순이익(억)", "EPS(원)"]
     
     var corpCode: String?
     var corpName: String?
@@ -37,12 +36,9 @@ class ThirdViewController: UIViewController {
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isTranslucent = false
         title = "재무제표 리스트"
-<<<<<<< HEAD
-        view.backgroundColor = UIColor.white
-=======
+        
         view.backgroundColor = .white
         
->>>>>>> a4907389efba26e1db31fafff10a92d090a03610
         view.addSubview(dataTable)
         dataTable.reload()
     }
@@ -66,17 +62,21 @@ class ThirdViewController: UIViewController {
                 var netIncome: DataTableValueType = .string("")
                 var EPS: DataTableValueType = .string("")
                 
+                let numberFormatter = NumberFormatter()
+                numberFormatter.numberStyle = .decimal
+                
+                
                 for factor in financialData {
                     if factor.accountNm.contains("매출액") {
-                        account = DataTableValueType.string(factor.thstrmAmount)
-                        
+                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                        account = DataTableValueType.string(factorData)
                     } else if factor.accountNm.contains("영업이익")  {
-                        businessProfit = DataTableValueType.string(factor.thstrmAmount)
-                        
+                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                        businessProfit = DataTableValueType.string(factorData)
                     } else if factor.accountNm.contains("당기순이익") && factor.sjNm.contains("손익계산서") {
-                        netIncome = DataTableValueType.string(factor.thstrmAmount)
-                        
-                    } else if factor.accountNm.contains("기본주당이익") {
+                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                        netIncome = DataTableValueType.string(factorData)
+                    } else if factor.accountNm.contains("기본주당") && factor.accountNm.contains("보통") {
                         EPS = DataTableValueType.string(factor.thstrmAmount)
                     }
                 }
@@ -89,9 +89,17 @@ class ThirdViewController: UIViewController {
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
         DispatchQueue.main.async {
             self.dataSource.append(dataSource)
-//            self.dataSource.sort { ($0.first ?? DataTableValueType.int(1)) < ($1.first ?? DataTableValueType.int(1)) }
+            //            self.dataSource.sort { ($0.first ?? DataTableValueType.int(1)) < ($1.first ?? DataTableValueType.int(1)) }
             self.dataTable.reload()
         }
+    }
+    
+    private func roundToBillion(value: Int) -> String {
+        let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
+        let str = String(billionValue)
+        let endIndex = str.index(str.endIndex, offsetBy: -8)
+        let remakeStr = String(str[..<endIndex])
+        return remakeStr
     }
 }
 

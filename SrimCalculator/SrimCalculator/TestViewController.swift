@@ -13,8 +13,9 @@ class TestViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        
+        var digit: Double = 189893
+        var roundDigit: Double = round(digit)
+        print(roundDigit)
         // Do any additional setup after loading the view.
     }
     

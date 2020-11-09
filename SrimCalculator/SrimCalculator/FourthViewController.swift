@@ -38,25 +38,25 @@ class FourthViewController: UIViewController {
         
         APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: 2020) { financialData in
             for factor in financialData {
-                if factor.accountNm == "수익(매출액)" {
+                if factor.accountNm.contains("매출액") {
                     self.salesAccount = factor.thstrmAmount
                     print(self.salesAccount ?? "")
                     DispatchQueue.main.async {
                         self.salesAccountLabel.text = self.salesAccount
                     }
-                } else if factor.accountNm == "영업이익(손실)"  {
+                } else if factor.accountNm.contains("영업이익") {
                     self.businessProfits = factor.thstrmAmount
                     print(self.businessProfits ?? "")
                     DispatchQueue.main.async {
                         self.businessProfitsLabel.text = self.businessProfits
                     }
-                } else if factor.accountNm == "당기순이익(손실)" && factor.sjNm == "손익계산서" {
+                } else if factor.accountNm.contains("당기순이익") && factor.sjNm.contains("손익계산서") {
                     self.netIncome = factor.thstrmAmount
                     print(self.netIncomeLabel ?? "")
                     DispatchQueue.main.async {
                         self.netIncomeLabel.text = self.netIncome
                     }
-                } else if factor.accountNm == "기본주당이익(손실)" {
+                } else if factor.accountNm.contains("기본주당이익") {
                     self.EPS = factor.thstrmAmount
                     print(self.EPS ?? "")
                     DispatchQueue.main.async {

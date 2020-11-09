@@ -1,0 +1,923 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F188EB7079CD19D827CB8BECDB04D93 /* DataTableSortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B27448FCE7374F1E5702EC9235CDC06 /* DataTableSortType.swift */; };
+		0F50665D0E31DE9DCE788CF54EB5AD65 /* SwiftDataTableDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AB6A93CE989BA34F5047C5F863DB67 /* SwiftDataTableDataSourceAndDelegate.swift */; };
+		0F8F3220C3941E63E4FD01B789836023 /* SwiftDataTable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 606AE5CA87DA5C82FB9FC3CC7E6AE49A /* SwiftDataTable+Extensions.swift */; };
+		111708E0BE4F4A95E91F4F7DCDE826EE /* SearchTextField-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FC18FF3E94CFB3EE0F9207DFF0B1986 /* SearchTextField-dummy.m */; };
+		131E9AB83BB143EFA00C68D9CAEA3084 /* CollectionViewCellRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D79998EF46E6339ABC48D7767FF6A9 /* CollectionViewCellRepresentable.swift */; };
+		19F8AE0A30AF248F70999436A59B6723 /* Pods-SrimCalculator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 452E16C6CBA8DD1D6452DFFD84BE4EFE /* Pods-SrimCalculator-dummy.m */; };
+		21D9BC8D73EA30EE516A13FCFD1DF7A2 /* DataCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992BA20261061908F09E2F1E5C69DB97 /* DataCellViewModel.swift */; };
+		2718E6620EC01DF079E341F96C87BE3B /* DataHeaderFooter.xib in Sources */ = {isa = PBXBuildFile; fileRef = E206646F7E1C5AB2C9594FDC97CD306F /* DataHeaderFooter.xib */; };
+		28F127E91AAE5B391469E34B2D520027 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		29B9E1EE169F542A9B576EFA07C9B695 /* SwiftDataTableLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9936AA2F2FDB3B9CFCD8755AEC75B60 /* SwiftDataTableLayout.swift */; };
+		2D4D994CCC723ED02714B3C9F839C117 /* DataCell.xib in Sources */ = {isa = PBXBuildFile; fileRef = 2026C95C742B3F3D70704039F116A489 /* DataCell.xib */; };
+		2F8B6E7B7B1CC50676B6FED111E2A087 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDC4ADF9B519487EC485CD1513F1B541 /* DataStore.swift */; };
+		30DFF6335A43534F690779A79C5B6C7F /* MenuLengthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B061AC0CD9A36B0EFA4F4D2CFEDE3A /* MenuLengthHeader.swift */; };
+		315735DDD21291565C04AF8FBE674EAE /* column-sort-unspecified.png in Sources */ = {isa = PBXBuildFile; fileRef = BDE221946A0156F818DA99F078CB0E01 /* column-sort-unspecified.png */; };
+		33158F6AA9B2AC0F8A2E8E609B6CDBBB /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40C58254DA7E492CA5B66D45045D813 /* SearchTextField.swift */; };
+		3D63B0B7D1E43BA47F8885A43ECEEA82 /* DataTableValueType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39D70AD174537EB36634669D199A386D /* DataTableValueType.swift */; };
+		4178EE7C0DD2992A3AC09B15ED2B2862 /* SwiftDataTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 483DBF2BE5DED7DD0A8E4009467F7171 /* SwiftDataTable.swift */; };
+		484FA8F6784137D7380FA77AD72D225A /* column-sort-ascending.png in Sources */ = {isa = PBXBuildFile; fileRef = 0BD96373BF7E4A352C19D03759C1EBBD /* column-sort-ascending.png */; };
+		4CC9FBB80AEEECF22D95A50F32D0D21C /* CollectionViewSupplementaryElementRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1069DECE8BE3233C85688AAA4D73A2DA /* CollectionViewSupplementaryElementRepresentable.swift */; };
+		4F32890712CD3C050D6133F301C74628 /* PaginationHeader.xib in Sources */ = {isa = PBXBuildFile; fileRef = 2B67E6D65230836E6CAB06F4CB8198B2 /* PaginationHeader.xib */; };
+		53DB89A6B5AB902FEE634A835AB2036F /* SwiftDataTables-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D39DAF8CBC9DB4D106DD9FE0D6C09942 /* SwiftDataTables-dummy.m */; };
+		5F2F80B35E124AFEB88ED9C018DF488E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		6CB9E6BAE314B3CBE0E06CF3D0817B47 /* column-sort-descending.png in Sources */ = {isa = PBXBuildFile; fileRef = 858FE994725924AC254679603362C1CE /* column-sort-descending.png */; };
+		70791E7C2B7CD4F8D0C29F96B866BC7A /* VirtualPositionTrackable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384D17AE098C9866E3518858A47E7B62 /* VirtualPositionTrackable.swift */; };
+		71CA99D8F1EAA075F3884E7420D07133 /* DataHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BF032234FEB5C5F0C9228B1B6FD84F /* DataHeaderFooter.swift */; };
+		886FB65DED4A8FABC42C520BE33E2EBB /* DataTableFixedColumnType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DAB404DAF558CBECE467B07C670EF0 /* DataTableFixedColumnType.swift */; };
+		8932D6FE8C07A935AC882D763243C8EE /* DataStructureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7CACD0BF06E502EF8B34258E96B14 /* DataStructureModel.swift */; };
+		92EB666E2D97E0F240BE653A8FF589E4 /* SwiftDataTables-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A48C231D2D7405A43ABF447CFE0AD03D /* SwiftDataTables-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BA95DE6D3E98665F963EF33223368DE /* DataHeaderFooterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EDC556C0E5275C9F82301F95EC283DB /* DataHeaderFooterViewModel.swift */; };
+		9CC652A0DD439F8B2E42DE0015BC92FA /* PaginationHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3EBC1134BAB028EE91072E35DEA947B /* PaginationHeaderViewModel.swift */; };
+		9F0829F576F1F798564F4CF94CA45E9D /* Pods-SrimCalculator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F8895CD9396DCC9F1747921A0242AE7D /* Pods-SrimCalculator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A9076E6A7D1BB6C27F0888F5E2F8D665 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8179601D4B98DE2E6252A2DA710F328C /* DataCell.swift */; };
+		B6FFBD4A743F989C4F24FA37B3D548BB /* DataCellLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F176A82356CF21D8FA3D1CF27F671B51 /* DataCellLayoutAttributes.swift */; };
+		B7DF8EC50A214E84A8E4213863E83585 /* DataCellRowRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265E7418837CB290D1CC1DE78B2E38CC /* DataCellRowRepresentable.swift */; };
+		BDBE69BF1465A938E2C7F9DD9C6CF23E /* PaginationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 769810CDAE2CA2CA2B8A39BCCEC0889B /* PaginationHeader.swift */; };
+		C3A4E39D36A024A218227DF73FF81333 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		CBCF786E6641DBC7D9B95367B7FF77C2 /* SearchTextField-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B933E002D5A3FB6CDB473BF448A5B822 /* SearchTextField-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CFE5A17A1D6A1DAB424BD4CBB299267C /* MenuLengthHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A727973763D531B2203C7C5E969F813 /* MenuLengthHeaderViewModel.swift */; };
+		D3DE98F6CFAE0010D991816D8A1D4E58 /* SwiftDataTables.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E64559069169405D73EBCA77762B595 /* SwiftDataTables.bundle */; };
+		D93C72B5C5979D1789DE285712E22511 /* DataTableSearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD6CE784AD23016E1D043CD4332B15B /* DataTableSearchTextField.swift */; };
+		E886810F3D326B9FA545AD7758BADE80 /* DataTableSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D015C533229E0DB46F07A7091CBCF28D /* DataTableSortable.swift */; };
+		E95B7E516C3B801DE139632A5F3F421B /* DataTableConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F889F5D2020154824A35B87525569379 /* DataTableConfiguration.swift */; };
+		F9435DEBA4BDBA783FB2DF5F63DBEDD2 /* MenuLengthHeader.xib in Sources */ = {isa = PBXBuildFile; fileRef = EFDD089D465CF114BAB24549F0537528 /* MenuLengthHeader.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0CCB4037B6E00E62B5EE7081505EF583 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE04C7AB740A197950A7213F6DAD6BD8;
+			remoteInfo = SwiftDataTables;
+		};
+		84D6D7CC66BFD9C63CFB555E2BE5C2D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C3F94412D7198255213EB9BC85FFF6E;
+			remoteInfo = SearchTextField;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		00F35DC0A43C42DF734591BCC806ECA0 /* SwiftDataTables.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftDataTables.debug.xcconfig; sourceTree = "<group>"; };
+		0BD96373BF7E4A352C19D03759C1EBBD /* column-sort-ascending.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "column-sort-ascending.png"; path = "SwiftDataTables/SwiftDataTables.bundle/column-sort-ascending.png"; sourceTree = "<group>"; };
+		0C029C2728A4280579FD1080457D1B99 /* SwiftDataTables.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftDataTables.framework; path = SwiftDataTables.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1069DECE8BE3233C85688AAA4D73A2DA /* CollectionViewSupplementaryElementRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewSupplementaryElementRepresentable.swift; path = SwiftDataTables/Classes/Protocols/CollectionViewSupplementaryElementRepresentable.swift; sourceTree = "<group>"; };
+		17294058C1CFF041F18FBE25C75B1578 /* SearchTextField-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SearchTextField-prefix.pch"; sourceTree = "<group>"; };
+		18F7CACD0BF06E502EF8B34258E96B14 /* DataStructureModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataStructureModel.swift; path = SwiftDataTables/Classes/Models/DataStructureModel.swift; sourceTree = "<group>"; };
+		2026C95C742B3F3D70704039F116A489 /* DataCell.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DataCell.xib; path = SwiftDataTables/Classes/DataCell/DataCell.xib; sourceTree = "<group>"; };
+		265E7418837CB290D1CC1DE78B2E38CC /* DataCellRowRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCellRowRepresentable.swift; path = SwiftDataTables/Classes/Protocols/DataCellRowRepresentable.swift; sourceTree = "<group>"; };
+		27E38DF68C673A5EB8644FB6A9772F87 /* SearchTextField.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SearchTextField.framework; path = SearchTextField.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B27448FCE7374F1E5702EC9235CDC06 /* DataTableSortType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTableSortType.swift; path = SwiftDataTables/Classes/Models/DataTableSortType.swift; sourceTree = "<group>"; };
+		2B67E6D65230836E6CAB06F4CB8198B2 /* PaginationHeader.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = PaginationHeader.xib; path = SwiftDataTables/Classes/PaginationHeader/PaginationHeader.xib; sourceTree = "<group>"; };
+		2FC18FF3E94CFB3EE0F9207DFF0B1986 /* SearchTextField-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SearchTextField-dummy.m"; sourceTree = "<group>"; };
+		3024309527CBA68CF13C4B3A4742EE4B /* Pods-SrimCalculator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SrimCalculator-Info.plist"; sourceTree = "<group>"; };
+		30DAB404DAF558CBECE467B07C670EF0 /* DataTableFixedColumnType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTableFixedColumnType.swift; path = SwiftDataTables/Classes/Models/DataTableFixedColumnType.swift; sourceTree = "<group>"; };
+		384D17AE098C9866E3518858A47E7B62 /* VirtualPositionTrackable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VirtualPositionTrackable.swift; path = SwiftDataTables/Classes/Protocols/VirtualPositionTrackable.swift; sourceTree = "<group>"; };
+		39D70AD174537EB36634669D199A386D /* DataTableValueType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTableValueType.swift; path = SwiftDataTables/Classes/Models/DataTableValueType.swift; sourceTree = "<group>"; };
+		452E16C6CBA8DD1D6452DFFD84BE4EFE /* Pods-SrimCalculator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SrimCalculator-dummy.m"; sourceTree = "<group>"; };
+		483DBF2BE5DED7DD0A8E4009467F7171 /* SwiftDataTable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftDataTable.swift; path = SwiftDataTables/Classes/SwiftDataTable.swift; sourceTree = "<group>"; };
+		4D9CEA7F8A208E146E9520B1C32752C6 /* SwiftDataTables.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftDataTables.modulemap; sourceTree = "<group>"; };
+		5A8311A4FFDD62162298DD53D3679BB6 /* SwiftDataTables-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftDataTables-Info.plist"; sourceTree = "<group>"; };
+		5E64559069169405D73EBCA77762B595 /* SwiftDataTables.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SwiftDataTables.bundle; path = SwiftDataTables/SwiftDataTables.bundle; sourceTree = "<group>"; };
+		5EDC556C0E5275C9F82301F95EC283DB /* DataHeaderFooterViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataHeaderFooterViewModel.swift; path = SwiftDataTables/Classes/HeaderFooter/DataHeaderFooterViewModel.swift; sourceTree = "<group>"; };
+		606AE5CA87DA5C82FB9FC3CC7E6AE49A /* SwiftDataTable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwiftDataTable+Extensions.swift"; path = "SwiftDataTables/Classes/Extensions/SwiftDataTable+Extensions.swift"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		743E569A9F908BBF95BBA323855478E6 /* Pods-SrimCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SrimCalculator.debug.xcconfig"; sourceTree = "<group>"; };
+		74D79998EF46E6339ABC48D7767FF6A9 /* CollectionViewCellRepresentable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewCellRepresentable.swift; path = SwiftDataTables/Classes/Protocols/CollectionViewCellRepresentable.swift; sourceTree = "<group>"; };
+		769810CDAE2CA2CA2B8A39BCCEC0889B /* PaginationHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaginationHeader.swift; path = SwiftDataTables/Classes/PaginationHeader/PaginationHeader.swift; sourceTree = "<group>"; };
+		7DCD4B5192401B84CCDF2928C93AD38D /* SwiftDataTables-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftDataTables-prefix.pch"; sourceTree = "<group>"; };
+		7FF4635061BAA1B4250CCF16281FCAEB /* SearchTextField.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SearchTextField.modulemap; sourceTree = "<group>"; };
+		8179601D4B98DE2E6252A2DA710F328C /* DataCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCell.swift; path = SwiftDataTables/Classes/DataCell/DataCell.swift; sourceTree = "<group>"; };
+		858FE994725924AC254679603362C1CE /* column-sort-descending.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "column-sort-descending.png"; path = "SwiftDataTables/SwiftDataTables.bundle/column-sort-descending.png"; sourceTree = "<group>"; };
+		89021AFAE3514951FBF676496691273A /* Pods_SrimCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SrimCalculator.framework; path = "Pods-SrimCalculator.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A727973763D531B2203C7C5E969F813 /* MenuLengthHeaderViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MenuLengthHeaderViewModel.swift; path = SwiftDataTables/Classes/MenuLengthHeader/MenuLengthHeaderViewModel.swift; sourceTree = "<group>"; };
+		8E670838C6F514F6E1A78517F7048AAE /* SearchTextField-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SearchTextField-Info.plist"; sourceTree = "<group>"; };
+		922BDBEAD83B5A1EB1E45E8FA7B5497F /* Pods-SrimCalculator-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SrimCalculator-acknowledgements.markdown"; sourceTree = "<group>"; };
+		98AB6A93CE989BA34F5047C5F863DB67 /* SwiftDataTableDataSourceAndDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftDataTableDataSourceAndDelegate.swift; path = SwiftDataTables/Classes/Protocols/SwiftDataTableDataSourceAndDelegate.swift; sourceTree = "<group>"; };
+		992BA20261061908F09E2F1E5C69DB97 /* DataCellViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCellViewModel.swift; path = SwiftDataTables/Classes/DataCell/DataCellViewModel.swift; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A48C231D2D7405A43ABF447CFE0AD03D /* SwiftDataTables-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftDataTables-umbrella.h"; sourceTree = "<group>"; };
+		A6BF032234FEB5C5F0C9228B1B6FD84F /* DataHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataHeaderFooter.swift; path = SwiftDataTables/Classes/HeaderFooter/DataHeaderFooter.swift; sourceTree = "<group>"; };
+		AFAED323A72104ADB7936CE163220DAA /* SwiftDataTables.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftDataTables.release.xcconfig; sourceTree = "<group>"; };
+		B933E002D5A3FB6CDB473BF448A5B822 /* SearchTextField-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SearchTextField-umbrella.h"; sourceTree = "<group>"; };
+		BDC4ADF9B519487EC485CD1513F1B541 /* DataStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataStore.swift; path = SwiftDataTables/Classes/DataStore.swift; sourceTree = "<group>"; };
+		BDE221946A0156F818DA99F078CB0E01 /* column-sort-unspecified.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "column-sort-unspecified.png"; path = "SwiftDataTables/SwiftDataTables.bundle/column-sort-unspecified.png"; sourceTree = "<group>"; };
+		C3EBC1134BAB028EE91072E35DEA947B /* PaginationHeaderViewModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PaginationHeaderViewModel.swift; path = SwiftDataTables/Classes/PaginationHeader/PaginationHeaderViewModel.swift; sourceTree = "<group>"; };
+		C8B061AC0CD9A36B0EFA4F4D2CFEDE3A /* MenuLengthHeader.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = MenuLengthHeader.swift; path = SwiftDataTables/Classes/MenuLengthHeader/MenuLengthHeader.swift; sourceTree = "<group>"; };
+		C9936AA2F2FDB3B9CFCD8755AEC75B60 /* SwiftDataTableLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftDataTableLayout.swift; path = SwiftDataTables/Classes/SwiftDataTableLayout.swift; sourceTree = "<group>"; };
+		CBD6CE784AD23016E1D043CD4332B15B /* DataTableSearchTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTableSearchTextField.swift; path = SwiftDataTables/Classes/DataTableSearchTextField.swift; sourceTree = "<group>"; };
+		CD6417860B6BFE9FC766B3C2CC86BCD9 /* SearchTextField.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SearchTextField.debug.xcconfig; sourceTree = "<group>"; };
+		D015C533229E0DB46F07A7091CBCF28D /* DataTableSortable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTableSortable.swift; path = SwiftDataTables/Classes/Protocols/DataTableSortable.swift; sourceTree = "<group>"; };
+		D39DAF8CBC9DB4D106DD9FE0D6C09942 /* SwiftDataTables-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftDataTables-dummy.m"; sourceTree = "<group>"; };
+		DB5DCB735E1F5C9FFE9152BD2C93DF46 /* Pods-SrimCalculator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SrimCalculator.modulemap"; sourceTree = "<group>"; };
+		DCF5B7621A5C465B29B4B52DAD3FAFA8 /* Pods-SrimCalculator-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SrimCalculator-frameworks.sh"; sourceTree = "<group>"; };
+		E206646F7E1C5AB2C9594FDC97CD306F /* DataHeaderFooter.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = DataHeaderFooter.xib; path = SwiftDataTables/Classes/HeaderFooter/DataHeaderFooter.xib; sourceTree = "<group>"; };
+		E40C58254DA7E492CA5B66D45045D813 /* SearchTextField.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchTextField.swift; path = SearchTextField/Classes/SearchTextField.swift; sourceTree = "<group>"; };
+		EBACDCDE51C70F25D1330CD809AC1523 /* SearchTextField.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SearchTextField.release.xcconfig; sourceTree = "<group>"; };
+		EFDD089D465CF114BAB24549F0537528 /* MenuLengthHeader.xib */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = file.xib; name = MenuLengthHeader.xib; path = SwiftDataTables/Classes/MenuLengthHeader/MenuLengthHeader.xib; sourceTree = "<group>"; };
+		F176A82356CF21D8FA3D1CF27F671B51 /* DataCellLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataCellLayoutAttributes.swift; path = SwiftDataTables/Classes/DataCell/DataCellLayoutAttributes.swift; sourceTree = "<group>"; };
+		F48B2B999516C21EC4890DE96EC24357 /* Pods-SrimCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SrimCalculator.release.xcconfig"; sourceTree = "<group>"; };
+		F8895CD9396DCC9F1747921A0242AE7D /* Pods-SrimCalculator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SrimCalculator-umbrella.h"; sourceTree = "<group>"; };
+		F889F5D2020154824A35B87525569379 /* DataTableConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DataTableConfiguration.swift; path = SwiftDataTables/Classes/Models/DataTableConfiguration.swift; sourceTree = "<group>"; };
+		F9B1EF07162541962BB32DA88E136FFC /* Pods-SrimCalculator-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SrimCalculator-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62414719C1CE95D9C5082E6F9FBA37C2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C3A4E39D36A024A218227DF73FF81333 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		780FF46E6E11E2FE73F57BE2C6756B2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28F127E91AAE5B391469E34B2D520027 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC171FE63EA67060F3962DCF23BA7235 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F2F80B35E124AFEB88ED9C018DF488E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		02EB3DB15AB21CF2341BA8A06B12C832 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E5108681FC48F489C17BF533B8AA5A3B /* Pods-SrimCalculator */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		3DC9649F3D98C625DEA124D569072E98 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D9CEA7F8A208E146E9520B1C32752C6 /* SwiftDataTables.modulemap */,
+				D39DAF8CBC9DB4D106DD9FE0D6C09942 /* SwiftDataTables-dummy.m */,
+				5A8311A4FFDD62162298DD53D3679BB6 /* SwiftDataTables-Info.plist */,
+				7DCD4B5192401B84CCDF2928C93AD38D /* SwiftDataTables-prefix.pch */,
+				A48C231D2D7405A43ABF447CFE0AD03D /* SwiftDataTables-umbrella.h */,
+				00F35DC0A43C42DF734591BCC806ECA0 /* SwiftDataTables.debug.xcconfig */,
+				AFAED323A72104ADB7936CE163220DAA /* SwiftDataTables.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftDataTables";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		5EBE60961B36F763ADB1418FD7D7EE55 /* SearchTextField */ = {
+			isa = PBXGroup;
+			children = (
+				E40C58254DA7E492CA5B66D45045D813 /* SearchTextField.swift */,
+				A19C030E88D0BAD43B19329676890EA4 /* Support Files */,
+			);
+			name = SearchTextField;
+			path = SearchTextField;
+			sourceTree = "<group>";
+		};
+		82689C1D3DE8C2FEF071E83A499098DA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5E64559069169405D73EBCA77762B595 /* SwiftDataTables.bundle */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		910788D877CBD1E8E51A9F3448C0C86D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				89021AFAE3514951FBF676496691273A /* Pods_SrimCalculator.framework */,
+				27E38DF68C673A5EB8644FB6A9772F87 /* SearchTextField.framework */,
+				0C029C2728A4280579FD1080457D1B99 /* SwiftDataTables.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A19C030E88D0BAD43B19329676890EA4 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7FF4635061BAA1B4250CCF16281FCAEB /* SearchTextField.modulemap */,
+				2FC18FF3E94CFB3EE0F9207DFF0B1986 /* SearchTextField-dummy.m */,
+				8E670838C6F514F6E1A78517F7048AAE /* SearchTextField-Info.plist */,
+				17294058C1CFF041F18FBE25C75B1578 /* SearchTextField-prefix.pch */,
+				B933E002D5A3FB6CDB473BF448A5B822 /* SearchTextField-umbrella.h */,
+				CD6417860B6BFE9FC766B3C2CC86BCD9 /* SearchTextField.debug.xcconfig */,
+				EBACDCDE51C70F25D1330CD809AC1523 /* SearchTextField.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SearchTextField";
+			sourceTree = "<group>";
+		};
+		A6753E214CAA13318D173D2660255B9E /* SwiftDataTables */ = {
+			isa = PBXGroup;
+			children = (
+				74D79998EF46E6339ABC48D7767FF6A9 /* CollectionViewCellRepresentable.swift */,
+				1069DECE8BE3233C85688AAA4D73A2DA /* CollectionViewSupplementaryElementRepresentable.swift */,
+				0BD96373BF7E4A352C19D03759C1EBBD /* column-sort-ascending.png */,
+				858FE994725924AC254679603362C1CE /* column-sort-descending.png */,
+				BDE221946A0156F818DA99F078CB0E01 /* column-sort-unspecified.png */,
+				8179601D4B98DE2E6252A2DA710F328C /* DataCell.swift */,
+				2026C95C742B3F3D70704039F116A489 /* DataCell.xib */,
+				F176A82356CF21D8FA3D1CF27F671B51 /* DataCellLayoutAttributes.swift */,
+				265E7418837CB290D1CC1DE78B2E38CC /* DataCellRowRepresentable.swift */,
+				992BA20261061908F09E2F1E5C69DB97 /* DataCellViewModel.swift */,
+				A6BF032234FEB5C5F0C9228B1B6FD84F /* DataHeaderFooter.swift */,
+				E206646F7E1C5AB2C9594FDC97CD306F /* DataHeaderFooter.xib */,
+				5EDC556C0E5275C9F82301F95EC283DB /* DataHeaderFooterViewModel.swift */,
+				BDC4ADF9B519487EC485CD1513F1B541 /* DataStore.swift */,
+				18F7CACD0BF06E502EF8B34258E96B14 /* DataStructureModel.swift */,
+				F889F5D2020154824A35B87525569379 /* DataTableConfiguration.swift */,
+				30DAB404DAF558CBECE467B07C670EF0 /* DataTableFixedColumnType.swift */,
+				CBD6CE784AD23016E1D043CD4332B15B /* DataTableSearchTextField.swift */,
+				D015C533229E0DB46F07A7091CBCF28D /* DataTableSortable.swift */,
+				2B27448FCE7374F1E5702EC9235CDC06 /* DataTableSortType.swift */,
+				39D70AD174537EB36634669D199A386D /* DataTableValueType.swift */,
+				C8B061AC0CD9A36B0EFA4F4D2CFEDE3A /* MenuLengthHeader.swift */,
+				EFDD089D465CF114BAB24549F0537528 /* MenuLengthHeader.xib */,
+				8A727973763D531B2203C7C5E969F813 /* MenuLengthHeaderViewModel.swift */,
+				769810CDAE2CA2CA2B8A39BCCEC0889B /* PaginationHeader.swift */,
+				2B67E6D65230836E6CAB06F4CB8198B2 /* PaginationHeader.xib */,
+				C3EBC1134BAB028EE91072E35DEA947B /* PaginationHeaderViewModel.swift */,
+				483DBF2BE5DED7DD0A8E4009467F7171 /* SwiftDataTable.swift */,
+				606AE5CA87DA5C82FB9FC3CC7E6AE49A /* SwiftDataTable+Extensions.swift */,
+				98AB6A93CE989BA34F5047C5F863DB67 /* SwiftDataTableDataSourceAndDelegate.swift */,
+				C9936AA2F2FDB3B9CFCD8755AEC75B60 /* SwiftDataTableLayout.swift */,
+				384D17AE098C9866E3518858A47E7B62 /* VirtualPositionTrackable.swift */,
+				82689C1D3DE8C2FEF071E83A499098DA /* Resources */,
+				3DC9649F3D98C625DEA124D569072E98 /* Support Files */,
+			);
+			name = SwiftDataTables;
+			path = SwiftDataTables;
+			sourceTree = "<group>";
+		};
+		C3EE252D9C1919C8E27219A4D05CE1C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5EBE60961B36F763ADB1418FD7D7EE55 /* SearchTextField */,
+				A6753E214CAA13318D173D2660255B9E /* SwiftDataTables */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				C3EE252D9C1919C8E27219A4D05CE1C0 /* Pods */,
+				910788D877CBD1E8E51A9F3448C0C86D /* Products */,
+				02EB3DB15AB21CF2341BA8A06B12C832 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E5108681FC48F489C17BF533B8AA5A3B /* Pods-SrimCalculator */ = {
+			isa = PBXGroup;
+			children = (
+				DB5DCB735E1F5C9FFE9152BD2C93DF46 /* Pods-SrimCalculator.modulemap */,
+				922BDBEAD83B5A1EB1E45E8FA7B5497F /* Pods-SrimCalculator-acknowledgements.markdown */,
+				F9B1EF07162541962BB32DA88E136FFC /* Pods-SrimCalculator-acknowledgements.plist */,
+				452E16C6CBA8DD1D6452DFFD84BE4EFE /* Pods-SrimCalculator-dummy.m */,
+				DCF5B7621A5C465B29B4B52DAD3FAFA8 /* Pods-SrimCalculator-frameworks.sh */,
+				3024309527CBA68CF13C4B3A4742EE4B /* Pods-SrimCalculator-Info.plist */,
+				F8895CD9396DCC9F1747921A0242AE7D /* Pods-SrimCalculator-umbrella.h */,
+				743E569A9F908BBF95BBA323855478E6 /* Pods-SrimCalculator.debug.xcconfig */,
+				F48B2B999516C21EC4890DE96EC24357 /* Pods-SrimCalculator.release.xcconfig */,
+			);
+			name = "Pods-SrimCalculator";
+			path = "Target Support Files/Pods-SrimCalculator";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2589E1D2D0F0C4277C1EB4F9DCCD5D23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9F0829F576F1F798564F4CF94CA45E9D /* Pods-SrimCalculator-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4314D7C37E41839B304AA7C779CACE98 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92EB666E2D97E0F240BE653A8FF589E4 /* SwiftDataTables-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6E5627924637131DB9F2B006EA4C568 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBCF786E6641DBC7D9B95367B7FF77C2 /* SearchTextField-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8C3F94412D7198255213EB9BC85FFF6E /* SearchTextField */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 628B428BFAD1C51B3CF236C8AD850806 /* Build configuration list for PBXNativeTarget "SearchTextField" */;
+			buildPhases = (
+				C6E5627924637131DB9F2B006EA4C568 /* Headers */,
+				EAB4CE7C80BBD4A38025825217B4DF24 /* Sources */,
+				62414719C1CE95D9C5082E6F9FBA37C2 /* Frameworks */,
+				10CC901AB5D433206A3F5C4127862CF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SearchTextField;
+			productName = SearchTextField;
+			productReference = 27E38DF68C673A5EB8644FB6A9772F87 /* SearchTextField.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		BE04C7AB740A197950A7213F6DAD6BD8 /* SwiftDataTables */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8D9444793ABF356029AAC059C8C93D6D /* Build configuration list for PBXNativeTarget "SwiftDataTables" */;
+			buildPhases = (
+				4314D7C37E41839B304AA7C779CACE98 /* Headers */,
+				A82D207D0E93A9BDF4F9A467A7591162 /* Sources */,
+				CC171FE63EA67060F3962DCF23BA7235 /* Frameworks */,
+				769752A4B4D7A5091093C37C9DC23FD2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftDataTables;
+			productName = SwiftDataTables;
+			productReference = 0C029C2728A4280579FD1080457D1B99 /* SwiftDataTables.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		EDA1F0EC6FACC445DA32F0382C78BDEC /* Pods-SrimCalculator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B9719B80ED510C3A6DBC4346616EF1E0 /* Build configuration list for PBXNativeTarget "Pods-SrimCalculator" */;
+			buildPhases = (
+				2589E1D2D0F0C4277C1EB4F9DCCD5D23 /* Headers */,
+				DDE4EFA61C5AFDCE53F9767DEC4031F1 /* Sources */,
+				780FF46E6E11E2FE73F57BE2C6756B2D /* Frameworks */,
+				D77ED7AA489FBD8363694725C36CA09F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8BE84CFDC291589B993AF9114979809 /* PBXTargetDependency */,
+				ECD58AD452C6FA66E174474763EE3070 /* PBXTargetDependency */,
+			);
+			name = "Pods-SrimCalculator";
+			productName = "Pods-SrimCalculator";
+			productReference = 89021AFAE3514951FBF676496691273A /* Pods_SrimCalculator.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 910788D877CBD1E8E51A9F3448C0C86D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EDA1F0EC6FACC445DA32F0382C78BDEC /* Pods-SrimCalculator */,
+				8C3F94412D7198255213EB9BC85FFF6E /* SearchTextField */,
+				BE04C7AB740A197950A7213F6DAD6BD8 /* SwiftDataTables */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		10CC901AB5D433206A3F5C4127862CF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		769752A4B4D7A5091093C37C9DC23FD2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3DE98F6CFAE0010D991816D8A1D4E58 /* SwiftDataTables.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77ED7AA489FBD8363694725C36CA09F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A82D207D0E93A9BDF4F9A467A7591162 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				131E9AB83BB143EFA00C68D9CAEA3084 /* CollectionViewCellRepresentable.swift in Sources */,
+				4CC9FBB80AEEECF22D95A50F32D0D21C /* CollectionViewSupplementaryElementRepresentable.swift in Sources */,
+				484FA8F6784137D7380FA77AD72D225A /* column-sort-ascending.png in Sources */,
+				6CB9E6BAE314B3CBE0E06CF3D0817B47 /* column-sort-descending.png in Sources */,
+				315735DDD21291565C04AF8FBE674EAE /* column-sort-unspecified.png in Sources */,
+				A9076E6A7D1BB6C27F0888F5E2F8D665 /* DataCell.swift in Sources */,
+				2D4D994CCC723ED02714B3C9F839C117 /* DataCell.xib in Sources */,
+				B6FFBD4A743F989C4F24FA37B3D548BB /* DataCellLayoutAttributes.swift in Sources */,
+				B7DF8EC50A214E84A8E4213863E83585 /* DataCellRowRepresentable.swift in Sources */,
+				21D9BC8D73EA30EE516A13FCFD1DF7A2 /* DataCellViewModel.swift in Sources */,
+				71CA99D8F1EAA075F3884E7420D07133 /* DataHeaderFooter.swift in Sources */,
+				2718E6620EC01DF079E341F96C87BE3B /* DataHeaderFooter.xib in Sources */,
+				9BA95DE6D3E98665F963EF33223368DE /* DataHeaderFooterViewModel.swift in Sources */,
+				2F8B6E7B7B1CC50676B6FED111E2A087 /* DataStore.swift in Sources */,
+				8932D6FE8C07A935AC882D763243C8EE /* DataStructureModel.swift in Sources */,
+				E95B7E516C3B801DE139632A5F3F421B /* DataTableConfiguration.swift in Sources */,
+				886FB65DED4A8FABC42C520BE33E2EBB /* DataTableFixedColumnType.swift in Sources */,
+				D93C72B5C5979D1789DE285712E22511 /* DataTableSearchTextField.swift in Sources */,
+				E886810F3D326B9FA545AD7758BADE80 /* DataTableSortable.swift in Sources */,
+				0F188EB7079CD19D827CB8BECDB04D93 /* DataTableSortType.swift in Sources */,
+				3D63B0B7D1E43BA47F8885A43ECEEA82 /* DataTableValueType.swift in Sources */,
+				30DFF6335A43534F690779A79C5B6C7F /* MenuLengthHeader.swift in Sources */,
+				F9435DEBA4BDBA783FB2DF5F63DBEDD2 /* MenuLengthHeader.xib in Sources */,
+				CFE5A17A1D6A1DAB424BD4CBB299267C /* MenuLengthHeaderViewModel.swift in Sources */,
+				BDBE69BF1465A938E2C7F9DD9C6CF23E /* PaginationHeader.swift in Sources */,
+				4F32890712CD3C050D6133F301C74628 /* PaginationHeader.xib in Sources */,
+				9CC652A0DD439F8B2E42DE0015BC92FA /* PaginationHeaderViewModel.swift in Sources */,
+				0F8F3220C3941E63E4FD01B789836023 /* SwiftDataTable+Extensions.swift in Sources */,
+				4178EE7C0DD2992A3AC09B15ED2B2862 /* SwiftDataTable.swift in Sources */,
+				0F50665D0E31DE9DCE788CF54EB5AD65 /* SwiftDataTableDataSourceAndDelegate.swift in Sources */,
+				29B9E1EE169F542A9B576EFA07C9B695 /* SwiftDataTableLayout.swift in Sources */,
+				53DB89A6B5AB902FEE634A835AB2036F /* SwiftDataTables-dummy.m in Sources */,
+				70791E7C2B7CD4F8D0C29F96B866BC7A /* VirtualPositionTrackable.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DDE4EFA61C5AFDCE53F9767DEC4031F1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19F8AE0A30AF248F70999436A59B6723 /* Pods-SrimCalculator-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EAB4CE7C80BBD4A38025825217B4DF24 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				111708E0BE4F4A95E91F4F7DCDE826EE /* SearchTextField-dummy.m in Sources */,
+				33158F6AA9B2AC0F8A2E8E609B6CDBBB /* SearchTextField.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ECD58AD452C6FA66E174474763EE3070 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftDataTables;
+			target = BE04C7AB740A197950A7213F6DAD6BD8 /* SwiftDataTables */;
+			targetProxy = 0CCB4037B6E00E62B5EE7081505EF583 /* PBXContainerItemProxy */;
+		};
+		F8BE84CFDC291589B993AF9114979809 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SearchTextField;
+			target = 8C3F94412D7198255213EB9BC85FFF6E /* SearchTextField */;
+			targetProxy = 84D6D7CC66BFD9C63CFB555E2BE5C2D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00602020702DF0C6A11D5D785B368ACA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBACDCDE51C70F25D1330CD809AC1523 /* SearchTextField.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SearchTextField/SearchTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SearchTextField/SearchTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SearchTextField/SearchTextField.modulemap";
+				PRODUCT_MODULE_NAME = SearchTextField;
+				PRODUCT_NAME = SearchTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		087D8A18252416766B25947B639BE310 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		1C3DE9CD51C6A4092BC83DBC2E95F4A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AFAED323A72104ADB7936CE163220DAA /* SwiftDataTables.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftDataTables/SwiftDataTables-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftDataTables/SwiftDataTables-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftDataTables/SwiftDataTables.modulemap";
+				PRODUCT_MODULE_NAME = SwiftDataTables;
+				PRODUCT_NAME = SwiftDataTables;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B45D9D4E706B0839FE81FB72AA5C0D5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 743E569A9F908BBF95BBA323855478E6 /* Pods-SrimCalculator.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C34AC10101859E984682B43005375399 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00F35DC0A43C42DF734591BCC806ECA0 /* SwiftDataTables.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftDataTables/SwiftDataTables-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftDataTables/SwiftDataTables-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftDataTables/SwiftDataTables.modulemap";
+				PRODUCT_MODULE_NAME = SwiftDataTables;
+				PRODUCT_NAME = SwiftDataTables;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D37CD465EC03E96673A76466BB806A2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		E1A77503C32785217A1E8EBA3AEAB482 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD6417860B6BFE9FC766B3C2CC86BCD9 /* SearchTextField.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SearchTextField/SearchTextField-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SearchTextField/SearchTextField-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SearchTextField/SearchTextField.modulemap";
+				PRODUCT_MODULE_NAME = SearchTextField;
+				PRODUCT_NAME = SearchTextField;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		E96B304E9B66F08E1DCDCB4956E0AB0F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F48B2B999516C21EC4890DE96EC24357 /* Pods-SrimCalculator.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.7;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D37CD465EC03E96673A76466BB806A2C /* Debug */,
+				087D8A18252416766B25947B639BE310 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		628B428BFAD1C51B3CF236C8AD850806 /* Build configuration list for PBXNativeTarget "SearchTextField" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1A77503C32785217A1E8EBA3AEAB482 /* Debug */,
+				00602020702DF0C6A11D5D785B368ACA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8D9444793ABF356029AAC059C8C93D6D /* Build configuration list for PBXNativeTarget "SwiftDataTables" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C34AC10101859E984682B43005375399 /* Debug */,
+				1C3DE9CD51C6A4092BC83DBC2E95F4A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B9719B80ED510C3A6DBC4346616EF1E0 /* Build configuration list for PBXNativeTarget "Pods-SrimCalculator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B45D9D4E706B0839FE81FB72AA5C0D5F /* Debug */,
+				E96B304E9B66F08E1DCDCB4956E0AB0F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
