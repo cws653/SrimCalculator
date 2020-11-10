@@ -1,7 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator-frameworks.sh
-${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
-${BUILT_PRODUCTS_DIR}/ChartsRealm/ChartsRealm.framework
-${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
-${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
 ${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework
 ${BUILT_PRODUCTS_DIR}/SwiftDataTables/SwiftDataTables.framework

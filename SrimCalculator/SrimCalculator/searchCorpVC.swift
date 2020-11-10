@@ -76,13 +76,15 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
             if factor.corpName.first == self.searchCoperationTextField.text {
                 isShowAlert = false
                 
-                guard let thirdViewController = storyboard?.instantiateViewController(identifier: "ThirdViewController") as? ThirdViewController else {
+                guard let tabBarController = self.navigationController?.viewControllers[2] as? UITabBarController else {
                     return
                 }
-                thirdViewController.corpName = factor.corpName.first
-                thirdViewController.corpCode = factor.corpCode.first
+                let thirdViewController = tabBarController.viewControllers?[0] as? ThirdViewController
                 
-                self.navigationController?.pushViewController(thirdViewController, animated: true)
+                thirdViewController?.corpName = factor.corpName.first
+                thirdViewController?.corpCode = factor.corpCode.first
+                
+                self.navigationController?.pushViewController(tabBarController, animated: true)
             }
         }
         
