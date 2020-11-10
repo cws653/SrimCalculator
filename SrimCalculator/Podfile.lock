@@ -1,20 +1,41 @@
 PODS:
+  - Charts (3.4.0):
+    - Charts/Core (= 3.4.0)
+  - Charts/Core (3.4.0)
+  - ChartsRealm (3.4.0):
+    - Charts (~> 3.4.0)
+    - RealmSwift (~> 3.18.0)
+  - Realm (3.18.0):
+    - Realm/Headers (= 3.18.0)
+  - Realm/Headers (3.18.0)
+  - RealmSwift (3.18.0):
+    - Realm (= 3.18.0)
   - SearchTextField (1.2.4)
   - SwiftDataTables (0.8.1)
 
 DEPENDENCIES:
+  - Charts
+  - ChartsRealm
   - SearchTextField
   - SwiftDataTables
 
 SPEC REPOS:
   trunk:
+    - Charts
+    - ChartsRealm
+    - Realm
+    - RealmSwift
     - SearchTextField
     - SwiftDataTables
 
 SPEC CHECKSUMS:
+  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
+  ChartsRealm: 2ae8bf478211a94b3b6dd20738db0b9b132eb66b
+  Realm: 7b3d04740facf45e958a514b466a32b04f1113d6
+  RealmSwift: c817b5f374668cf08f649afb05f55d92a787649c
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftDataTables: 9e5f2ad7e7430c8008a31e66a0237ed29bf6fca8
 
-PODFILE CHECKSUM: 0d733c0aef75f3244b03afaa08698cf79eb3cdc1
+PODFILE CHECKSUM: 3c873dc4085854472ea4363db83be5d221abcaa4
 
 COCOAPODS: 1.10.0

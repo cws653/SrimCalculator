@@ -75,8 +75,14 @@ class ThirdViewController: UIViewController {
                     } else if factor.accountNm.contains("당기순이익") && factor.sjNm.contains("손익계산서") {
                         let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                         netIncome = DataTableValueType.string(factorData)
-                    } else if factor.accountNm.contains("기본주당") && factor.accountNm.contains("보통") {
-                        EPS = DataTableValueType.string(factor.thstrmAmount)
+                        //                    } else if factor.accountNm.contains("기본주당이익") {
+                        //                        EPS = DataTableValueType.string(factor.thstrmAmount)
+                    } else if factor.accountNm.contains("기본") && factor.accountNm.contains("주당") && factor.accountNm.contains("이익") {
+                        if factor.accountNm.contains("보통") {
+                            EPS = DataTableValueType.string(factor.thstrmAmount)
+                        } else {
+                            EPS = DataTableValueType.string(factor.thstrmAmount)
+                        }
                     }
                 }
                 let temp = [year, account, businessProfit, netIncome, EPS]
