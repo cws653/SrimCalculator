@@ -1,20 +1,26 @@
 PODS:
+  - Charts (3.6.0):
+    - Charts/Core (= 3.6.0)
+  - Charts/Core (3.6.0)
   - SearchTextField (1.2.4)
   - SwiftDataTables (0.8.1)
 
 DEPENDENCIES:
+  - Charts
   - SearchTextField
   - SwiftDataTables
 
 SPEC REPOS:
   trunk:
+    - Charts
     - SearchTextField
     - SwiftDataTables
 
 SPEC CHECKSUMS:
+  Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftDataTables: 9e5f2ad7e7430c8008a31e66a0237ed29bf6fca8
 
-PODFILE CHECKSUM: 41058593f5e5359eb1e6feefc5efe5b70c5c5c3b
+PODFILE CHECKSUM: f095fc72d29ff8731792f39ea41b32ebff2a40e7
 
 COCOAPODS: 1.10.0
