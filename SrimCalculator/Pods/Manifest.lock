@@ -1,13 +1,7 @@
 PODS:
-<<<<<<< HEAD
-  - Charts (3.4.0):
-    - Charts/Core (= 3.4.0)
-  - Charts/Core (3.4.0)
-=======
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
->>>>>>> develop_tabBarController
   - SearchTextField (1.2.4)
   - SwiftDataTables (0.8.1)
 
@@ -23,14 +17,10 @@ SPEC REPOS:
     - SwiftDataTables
 
 SPEC CHECKSUMS:
-<<<<<<< HEAD
-  Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
-=======
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
->>>>>>> develop_tabBarController
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftDataTables: 9e5f2ad7e7430c8008a31e66a0237ed29bf6fca8
 
 PODFILE CHECKSUM: f095fc72d29ff8731792f39ea41b32ebff2a40e7
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.8.4
