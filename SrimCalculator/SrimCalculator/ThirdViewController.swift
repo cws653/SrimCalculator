@@ -35,7 +35,7 @@ class ThirdViewController: UIViewController {
     private func setupViews() {
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isTranslucent = false
-        title = "재무제표 리스트"
+        title = "재무제표"
         
         view.backgroundColor = .white
         

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import SearchTextField  // https://github.com/apasccon/SearchTextField
+import SearchTextField
+//import SearchTextField  // https://github.com/apasccon/SearchTextField
 
 class searchCorpVC: UIViewController, UITextFieldDelegate {
     
