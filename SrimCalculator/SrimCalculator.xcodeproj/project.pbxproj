@@ -9,29 +9,26 @@
 /* Begin PBXBuildFile section */
 		57A1B33C03B07BD202362799 /* Pods_SrimCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */; };
 		9D025ABB254992AE002B58D6 /* APIfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D025ABA254992AE002B58D6 /* APIfunction.swift */; };
-		9D16A14F2539C1D100700E07 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D16A14E2539C1D100700E07 /* SecondViewController.swift */; };
 		9D3A5128253947390011A06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A5127253947390011A06A /* AppDelegate.swift */; };
 		9D3A512A253947390011A06A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A5129253947390011A06A /* SceneDelegate.swift */; };
-		9D3A512C253947390011A06A /* searchCorpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A512B253947390011A06A /* searchCorpVC.swift */; };
+		9D3A512C253947390011A06A /* SearchCorpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A512B253947390011A06A /* SearchCorpVC.swift */; };
 		9D3A512F253947390011A06A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A512D253947390011A06A /* Main.storyboard */; };
 		9D3A51312539473B0011A06A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A51302539473B0011A06A /* Assets.xcassets */; };
 		9D3A51342539473B0011A06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A51322539473B0011A06A /* LaunchScreen.storyboard */; };
 		9D3DC7A62559642C00DCDE3D /* OtherFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3DC7A52559642C00DCDE3D /* OtherFunction.swift */; };
 		9D5667382545734E0085154A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5667372545734E0085154A /* TestViewController.swift */; };
 		9D7E48E02543F08F0010B505 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E48DF2543F08F0010B505 /* DataStruct.swift */; };
-		9DD9096D253C3176007B7A70 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9096C253C3176007B7A70 /* ThirdViewController.swift */; };
-		9DF4FF982543FB490047C5DB /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF4FF972543FB490047C5DB /* FourthViewController.swift */; };
+		9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		14EAB012F57349DEDDA8EC17 /* Pods-SrimCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.debug.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 		6E977C116F5DA1DF4513BB0A /* Pods-SrimCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.release.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		9D025ABA254992AE002B58D6 /* APIfunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIfunction.swift; sourceTree = "<group>"; };
-		9D16A14E2539C1D100700E07 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		9D3A5124253947390011A06A /* SrimCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SrimCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3A5127253947390011A06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3A5129253947390011A06A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9D3A512B253947390011A06A /* searchCorpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchCorpVC.swift; sourceTree = "<group>"; };
+		9D3A512B253947390011A06A /* SearchCorpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCorpVC.swift; sourceTree = "<group>"; };
 		9D3A512E253947390011A06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9D3A51302539473B0011A06A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D3A51332539473B0011A06A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -39,8 +36,7 @@
 		9D3DC7A52559642C00DCDE3D /* OtherFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFunction.swift; sourceTree = "<group>"; };
 		9D5667372545734E0085154A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9D7E48DF2543F08F0010B505 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
-		9DD9096C253C3176007B7A70 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		9DF4FF972543FB490047C5DB /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
+		9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancalStatementTableVC.swift; sourceTree = "<group>"; };
 		CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SrimCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -87,10 +83,8 @@
 			children = (
 				9D3A5127253947390011A06A /* AppDelegate.swift */,
 				9D3A5129253947390011A06A /* SceneDelegate.swift */,
-				9D3A512B253947390011A06A /* searchCorpVC.swift */,
-				9D16A14E2539C1D100700E07 /* SecondViewController.swift */,
-				9DD9096C253C3176007B7A70 /* ThirdViewController.swift */,
-				9DF4FF972543FB490047C5DB /* FourthViewController.swift */,
+				9D3A512B253947390011A06A /* SearchCorpVC.swift */,
+				9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */,
 				9D5667372545734E0085154A /* TestViewController.swift */,
 				9D3A512D253947390011A06A /* Main.storyboard */,
 				9D3A51302539473B0011A06A /* Assets.xcassets */,
@@ -228,13 +222,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D3DC7A62559642C00DCDE3D /* OtherFunction.swift in Sources */,
-				9D16A14F2539C1D100700E07 /* SecondViewController.swift in Sources */,
-				9D3A512C253947390011A06A /* searchCorpVC.swift in Sources */,
+				9D3A512C253947390011A06A /* SearchCorpVC.swift in Sources */,
 				9D025ABB254992AE002B58D6 /* APIfunction.swift in Sources */,
 				9D5667382545734E0085154A /* TestViewController.swift in Sources */,
 				9D7E48E02543F08F0010B505 /* DataStruct.swift in Sources */,
-				9DF4FF982543FB490047C5DB /* FourthViewController.swift in Sources */,
-				9DD9096D253C3176007B7A70 /* ThirdViewController.swift in Sources */,
+				9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */,
 				9D3A5128253947390011A06A /* AppDelegate.swift in Sources */,
 				9D3A512A253947390011A06A /* SceneDelegate.swift in Sources */,
 			);

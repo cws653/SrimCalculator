@@ -10,7 +10,7 @@ import UIKit
 import SearchTextField
 //import SearchTextField  // https://github.com/apasccon/SearchTextField
 
-class searchCorpVC: UIViewController, UITextFieldDelegate {
+class SearchCorpVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet private weak var searchCoperationTextField: SearchTextField!
     
@@ -30,7 +30,7 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
         self.searchCoperationTextField.maxNumberOfResults = 5
         self.searchCoperationTextField.itemSelectionHandler = { item, itemPosition in
             self.searchCoperationTextField.text = item[itemPosition].title
-            self.pushToThrirdViewController()
+            self.pushToFinancialStatementVC()
         }
     }
     
@@ -66,10 +66,10 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
             return
         }
         
-        self.pushToThrirdViewController()
+        self.pushToFinancialStatementVC()
     }
     
-    private func pushToThrirdViewController() {
+    private func pushToFinancialStatementVC() {
         var isShowAlert: Bool = true
         
         for factor in list {
@@ -81,12 +81,12 @@ class searchCorpVC: UIViewController, UITextFieldDelegate {
                     return
                 }
                 
-                guard let thirdViewController = tabBarController.viewControllers?[0] as? ThirdViewController  else {
+                guard let financialStatementVC = tabBarController.viewControllers?[0] as? FinancalStatementTableVC  else {
                     return
                 }
                 
-                thirdViewController.corpName = factor.corpName.first
-                thirdViewController.corpCode = factor.corpCode.first
+                financialStatementVC.corpName = factor.corpName.first
+                financialStatementVC.corpCode = factor.corpCode.first
                 
                 self.navigationController?.pushViewController(tabBarController, animated: true)
             }

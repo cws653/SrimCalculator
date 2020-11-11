@@ -9,7 +9,7 @@
 import UIKit
 import SwiftDataTables
 
-class ThirdViewController: UIViewController {
+class FinancalStatementTableVC: UIViewController {
     
     lazy var dataTable = makeDataTable()
     var dataSource: DataTableContent = []
@@ -75,8 +75,6 @@ class ThirdViewController: UIViewController {
                     } else if factor.accountNm.contains("당기순이익") && factor.sjNm.contains("손익계산서") {
                         let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                         netIncome = DataTableValueType.string(factorData)
-                        //                    } else if factor.accountNm.contains("기본주당이익") {
-                        //                        EPS = DataTableValueType.string(factor.thstrmAmount)
                     } else if factor.accountNm.contains("기본") && factor.accountNm.contains("주당") && factor.accountNm.contains("이익") {
                         if factor.accountNm.contains("보통") {
                             EPS = DataTableValueType.string(factor.thstrmAmount)
@@ -108,7 +106,7 @@ class ThirdViewController: UIViewController {
     }
 }
 
-extension ThirdViewController {
+extension FinancalStatementTableVC {
     private func makeDataTable() -> SwiftDataTable {
         let dataTable = SwiftDataTable(dataSource: self)
         dataTable.translatesAutoresizingMaskIntoConstraints = false
@@ -118,7 +116,7 @@ extension ThirdViewController {
     }
 }
 
-extension ThirdViewController: SwiftDataTableDataSource {
+extension FinancalStatementTableVC: SwiftDataTableDataSource {
     func numberOfColumns(in: SwiftDataTable) -> Int {
         return self.headerTitles.count
     }
@@ -136,7 +134,7 @@ extension ThirdViewController: SwiftDataTableDataSource {
     }
 }
 
-extension ThirdViewController: SwiftDataTableDelegate {
+extension FinancalStatementTableVC: SwiftDataTableDelegate {
     func didSelectItem(_ dataTable: SwiftDataTable, indexPath: IndexPath) {
         debugPrint("did select item at indexPath: \(indexPath) dataValue: \(dataTable.data(for: indexPath))")
     }

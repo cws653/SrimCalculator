@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="b5g-4f-woI">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,13 +10,13 @@
         <!--Search CorpVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="searchCorpVC" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SearchCorpVC" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dc8-PV-aGn">
-                                <rect key="frame" x="30" y="354" width="40" height="40"/>
+                                <rect key="frame" x="30" y="310" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="3gM-7e-LwM"/>
                                     <constraint firstAttribute="height" constant="40" id="AfI-j6-EIn"/>
@@ -30,7 +28,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="주식명, 종목(주식) 코드 검색" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mRk-DY-53F" customClass="SearchTextField" customModule="SearchTextField">
-                                <rect key="frame" x="75" y="354" width="309" height="40"/>
+                                <rect key="frame" x="75" y="310" width="495" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Xg8-Ad-oio"/>
                                 </constraints>
@@ -38,7 +36,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S-RIM 적정주가" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Aj-9T-XYH">
-                                <rect key="frame" x="95" y="208" width="224.5" height="48"/>
+                                <rect key="frame" x="188" y="164" width="224.5" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Pi1-Ng-7eC"/>
                                 </constraints>
@@ -47,7 +45,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계산기" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="chK-9l-4fh">
-                                <rect key="frame" x="161.5" y="256" width="91" height="48"/>
+                                <rect key="frame" x="254.5" y="212" width="91" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Kdu-tV-8Fn"/>
                                 </constraints>
@@ -56,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8sa-cE-DwM">
-                                <rect key="frame" x="92" y="479" width="230" height="151"/>
+                                <rect key="frame" x="185" y="435" width="230" height="151"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="quz-4n-EWh">
                                         <rect key="frame" x="0.0" y="0.0" width="230" height="70.5"/>
@@ -246,7 +244,7 @@
             <objects>
                 <viewController id="lDi-dB-acZ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Kfw-n5-x52">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="6A1-TI-Z3z"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -262,7 +260,7 @@
             <objects>
                 <viewController storyboardIdentifier="secondViewController" modalPresentationStyle="fullScreen" id="iAI-MK-U1n" customClass="SecondViewController" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Isb-Uc-nAv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="Lea-Dk-gvk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -278,7 +276,7 @@
             <objects>
                 <viewController storyboardIdentifier="FourthViewController" id="BA1-4M-4ea" customClass="FourthViewController" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qQu-lB-6c7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="pgW-AO-ZVS">
@@ -375,9 +373,9 @@
         <!--Table-->
         <scene sceneID="cYC-MR-wMv">
             <objects>
-                <viewController storyboardIdentifier="ThirdViewController" id="T5q-lJ-cm8" customClass="ThirdViewController" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FinancalStatementTableVC" id="T5q-lJ-cm8" customClass="FinancalStatementTableVC" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H7a-Vk-XZo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="En0-lR-Fyk"/>
                         <color key="backgroundColor" systemColor="systemGray3Color"/>
