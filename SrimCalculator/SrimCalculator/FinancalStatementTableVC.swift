@@ -9,6 +9,7 @@
 import UIKit
 import SwiftDataTables
 
+
 class FinancalStatementTableVC: UIViewController {
     
     lazy var dataTable = makeDataTable()
@@ -17,6 +18,9 @@ class FinancalStatementTableVC: UIViewController {
     
     var corpCode: String?
     var corpName: String?
+    
+    let listOfAccountWord: [String] = []
+    let listOfEPSWord: [String] = ["보통주", "기본주당이익", "기본및희석주당이익"]
     
     private let APIInstanceClass = APIClass()
     
@@ -62,25 +66,28 @@ class FinancalStatementTableVC: UIViewController {
                 var netIncome: DataTableValueType = .string("")
                 var EPS: DataTableValueType = .string("")
                 
-                let numberFormatter = NumberFormatter()
-                numberFormatter.numberStyle = .decimal
-                
                 for factor in financialData {
                     if factor.accountNm.contains("매출액") {
-                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                        let factorData = factor.thstrmAmount
+                        //                        print(factorData)
+                        //                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                         account = DataTableValueType.string(factorData)
                     } else if factor.accountNm.contains("영업이익")  {
-                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                        let factorData = factor.thstrmAmount
+                        //                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                         businessProfit = DataTableValueType.string(factorData)
                     } else if factor.accountNm.contains("당기순이익") && factor.sjNm.contains("손익계산서") {
-                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                        let factorData = factor.thstrmAmount
+                        //                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                         netIncome = DataTableValueType.string(factorData)
-                    } else if factor.accountNm.contains("기본") && factor.accountNm.contains("주당") && factor.accountNm.contains("이익") {
-                        if factor.accountNm.contains("보통") {
-                            EPS = DataTableValueType.string(factor.thstrmAmount)
-                        } else {
-                            EPS = DataTableValueType.string(factor.thstrmAmount)
-                        }
+//                    } else if factor.accountNm.contains("기본") && factor.accountNm.contains("주당") {
+//                        if factor.accountNm.contains("보통") {
+//                            EPS = DataTableValueType.string(factor.thstrmAmount)
+//                        } else {
+//                            EPS = DataTableValueType.string(factor.thstrmAmount)
+//                        }
+                    } else if self.findEPSKey(structFinancalStatement: factor) {
+                        EPS = DataTableValueType.string(factor.thstrmAmount)
                     }
                 }
                 let temp = [year, account, businessProfit, netIncome, EPS]
@@ -98,11 +105,28 @@ class FinancalStatementTableVC: UIViewController {
     }
     
     private func roundToBillion(value: Int) -> String {
-        let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
-        let str = String(billionValue)
-        let endIndex = str.index(str.endIndex, offsetBy: -8)
-        let remakeStr = String(str[..<endIndex])
-        return remakeStr
+        
+        if value == 0 {
+            return "nil"
+        } else {
+            let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
+            let str = String(billionValue)
+            let endIndex = str.index(str.endIndex, offsetBy: -8)
+            let remakeStr = String(str[..<endIndex])
+            return remakeStr
+        }
+    }
+    
+    private func findEPSKey(structFinancalStatement:FinancialStatementsList) -> Bool {
+        
+        for word in 0..<listOfEPSWord.count {
+            if structFinancalStatement.accountNm.contains(listOfEPSWord[word]) {
+                print(listOfEPSWord[word])
+                return true
+            }
+        }
+        print("단어가 없습니다.")
+        return false
     }
 }
 
