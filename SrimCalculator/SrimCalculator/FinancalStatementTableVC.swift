@@ -94,31 +94,58 @@ class FinancalStatementTableVC: UIViewController {
                     //                    }
                     
                     if account == .string("") {
-//                        if factor.sjNm.contains("")
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.listOfAccountWord) {
-                            let factorData = factor.thstrmAmount
-                            account = DataTableValueType.string(factorData)
+                        if factor.sjNm.contains("손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfAccountWord) {
+                                let factorData = factor.thstrmAmount
+                                account = DataTableValueType.string(factorData)
+                            }
+                        } else if factor.sjNm.contains("포괄손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfAccountWord) {
+                                let factorData = factor.thstrmAmount
+                                account = DataTableValueType.string(factorData)
+                            }
                         }
                     }
                     
                     if businessProfit == .string("") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.listOfBusinessProfitWord) {
-                            let factorData = factor.thstrmAmount
-                            businessProfit = DataTableValueType.string(factorData)
+                        if factor.sjNm.contains("손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfBusinessProfitWord) {
+                                let factorData = factor.thstrmAmount
+                                businessProfit = DataTableValueType.string(factorData)
+                            }
+                        } else if factor.sjNm.contains("포괄손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfBusinessProfitWord) {
+                                let factorData = factor.thstrmAmount
+                                businessProfit = DataTableValueType.string(factorData)
+                            }
                         }
                     }
                     
                     if netIncome == .string("") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.listOfNetIncome) {
-                            let factorData = factor.thstrmAmount
-                            netIncome = DataTableValueType.string(factorData)
+                        if factor.sjNm.contains("손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfNetIncome) {
+                                let factorData = factor.thstrmAmount
+                                netIncome = DataTableValueType.string(factorData)
+                            }
+                        } else if factor.sjNm.contains("포괄손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfNetIncome) {
+                                let factorData = factor.thstrmAmount
+                                netIncome = DataTableValueType.string(factorData)
+                            }
                         }
                     }
                     
                     if EPS == .string("") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.listOfEPSWord) {
-                            let factorData = factor.thstrmAmount
-                            EPS = DataTableValueType.string(factorData)
+                        if factor.sjNm.contains("손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfEPSWord) {
+                                let factorData = factor.thstrmAmount
+                                EPS = DataTableValueType.string(factorData)
+                            }
+                        } else if factor.sjNm.contains("포괄손익계산서") {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfEPSWord) {
+                                let factorData = factor.thstrmAmount
+                                EPS = DataTableValueType.string(factorData)
+                            }
                         }
                     }
                 }
@@ -153,7 +180,7 @@ class FinancalStatementTableVC: UIViewController {
         
         for word in 0..<list.count {
             if structFinancalStatement.accountNm == list[word] {
-//                structFinancalStatement.accountNm.contains(list[word])
+                //                structFinancalStatement.accountNm.contains(list[word])
                 print(list[word])
                 return true
             }
