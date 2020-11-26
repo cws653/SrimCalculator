@@ -19,10 +19,10 @@ class FinancalStatementTableVC: UIViewController {
     var corpCode: String?
     var corpName: String?
     
-    let listOfAccountWord: [String] = ["매출액", "매출","매출 및 지분법 손익", "수익(매출액)", "영업수익"]
-    let listOfBusinessProfitWord: [String] = ["영업손익", "영업이익", "영업이익(손실)", "총영업이익", "영업이익 (손실)"]
-    let listOfNetIncome: [String] = ["당기순손익", "당기순이익", "당기순이익(손실)", "당기의 순이익"]
-    let listOfEPSWord: [String] = ["기본 및 희석 보통주당이익", "기본 및 희석주당이익", "기본 및 희석주당이익(보통주)", "기본/희석주당순이익", "기본및희석주당계속영업이익", "기본및희석주당이익", "기본및희석주당이익(손실)","기본주당손익", "기본주당순이익", "기본주당이익", "기본주당이익(손실)", "보통주 기본 및 희석주당손익", "보통주 기본 및 희석주당이익(손실)", "보통주 기본및희석주당손익", "보통주 기본주당이익", "보통주기본주당순이익", "보통주기본주당순이익(손실)", "보통주기본주당이익", "보통주희석주당이익", "기본주당이익(손실) (단위:원)","기본주당이익(원)","보통주 기본 및 희석주당이익 (단위: 원)","기본주당계속영업이익","보통주 기본주당손익","기본주당순이익(손실)"]
+    let accountWords: [String] = ["매출액", "매출","매출 및 지분법 손익", "수익(매출액)", "영업수익"]
+    let businessProfitWords: [String] = ["영업손익", "영업이익", "영업이익(손실)", "총영업이익", "영업이익 (손실)"]
+    let netIncomeWords: [String] = ["당기순손익", "당기순이익", "당기순이익(손실)", "당기의 순이익"]
+    let EPSWords: [String] = ["기본 및 희석 보통주당이익", "기본 및 희석주당이익", "기본 및 희석주당이익(보통주)", "기본/희석주당순이익", "기본및희석주당계속영업이익", "기본및희석주당이익", "기본및희석주당이익(손실)","기본주당손익", "기본주당순이익", "기본주당이익", "기본주당이익(손실)", "보통주 기본 및 희석주당손익", "보통주 기본 및 희석주당이익(손실)", "보통주 기본및희석주당손익", "보통주 기본주당이익", "보통주기본주당순이익", "보통주기본주당순이익(손실)", "보통주기본주당이익", "보통주희석주당이익", "기본주당이익(손실) (단위:원)","기본주당이익(원)","보통주 기본 및 희석주당이익 (단위: 원)","기본주당계속영업이익","보통주 기본주당손익","기본주당순이익(손실)"]
     
     private let APIInstanceClass = APIClass()
     
@@ -95,12 +95,12 @@ class FinancalStatementTableVC: UIViewController {
                     
                     if account == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfAccountWord) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.accountWords) {
                                 let factorData = factor.thstrmAmount
                                 account = DataTableValueType.string(factorData)
                             }
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfAccountWord) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.accountWords) {
                                 let factorData = factor.thstrmAmount
                                 account = DataTableValueType.string(factorData)
                             }
@@ -109,12 +109,12 @@ class FinancalStatementTableVC: UIViewController {
                     
                     if businessProfit == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfBusinessProfitWord) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.businessProfitWords) {
                                 let factorData = factor.thstrmAmount
                                 businessProfit = DataTableValueType.string(factorData)
                             }
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfBusinessProfitWord) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.businessProfitWords) {
                                 let factorData = factor.thstrmAmount
                                 businessProfit = DataTableValueType.string(factorData)
                             }
@@ -123,12 +123,12 @@ class FinancalStatementTableVC: UIViewController {
                     
                     if netIncome == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfNetIncome) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.netIncomeWords) {
                                 let factorData = factor.thstrmAmount
                                 netIncome = DataTableValueType.string(factorData)
                             }
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfNetIncome) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.netIncomeWords) {
                                 let factorData = factor.thstrmAmount
                                 netIncome = DataTableValueType.string(factorData)
                             }
@@ -137,12 +137,12 @@ class FinancalStatementTableVC: UIViewController {
                     
                     if EPS == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfEPSWord) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
                                 let factorData = factor.thstrmAmount
                                 EPS = DataTableValueType.string(factorData)
                             }
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.listOfEPSWord) {
+                            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
                                 let factorData = factor.thstrmAmount
                                 EPS = DataTableValueType.string(factorData)
                             }
@@ -163,29 +163,33 @@ class FinancalStatementTableVC: UIViewController {
         }
     }
     
-    private func roundToBillion(value: Int) -> String {
+    private func roundToBillion(value: Int) -> String? {
         
-        if value == 0 {
-            return "nil"
-        } else {
-            let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
-            let str = String(billionValue)
-            let endIndex = str.index(str.endIndex, offsetBy: -8)
-            let remakeStr = String(str[..<endIndex])
-            return remakeStr
-        }
+        //        if value == 0 {
+        //            return "nil"
+        //        } else {
+        //            let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
+        //            let str = String(billionValue)
+        //            let endIndex = str.index(str.endIndex, offsetBy: -8)
+        //            let remakeStr = String(str[..<endIndex])
+        //            return remakeStr
+        //        }
+        let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
+        let str = String(billionValue)
+        let endIndex = str.index(str.endIndex, offsetBy: -8)
+        let remakeStr = String(str[..<endIndex])
+        return remakeStr
     }
     
     private func findKeyWord(structFinancalStatement:FinancialStatementsList, list:[String]) -> Bool {
         
-        for word in 0..<list.count {
-            if structFinancalStatement.accountNm == list[word] {
+        for index in 0..<list.count {
+            if structFinancalStatement.accountNm == list[index] {
                 //                structFinancalStatement.accountNm.contains(list[word])
-                print(list[word])
+                print(list[index])
                 return true
             }
         }
-        print("단어가 없습니다.")
         return false
     }
 }
