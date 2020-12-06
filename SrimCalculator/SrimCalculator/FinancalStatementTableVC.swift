@@ -58,7 +58,44 @@ class FinancalStatementTableVC: UIViewController {
         ])
     }
     
+    enum DataValueType {
+        case account
+        case businessProfit
+        case netIncome
+        case EPS
+        
+        var words: [String] {
+            switch self {
+            case .account:
+                return ["매출액", "매출","매출 및 지분법 손익", "수익(매출액)", "영업수익"]
+            case .businessProfit:
+                return ["영업손익", "영업이익", "영업이익(손실)", "총영업이익", "영업이익 (손실)"]
+            case .netIncome:
+                return ["당기순손익", "당기순이익", "당기순이익(손실)", "당기의 순이익"]
+            case .EPS:
+                return ["기본 및 희석 보통주당이익", "기본 및 희석주당이익", "기본 및 희석주당이익(보통주)", "기본/희석주당순이익", "기본및희석주당계속영업이익", "기본및희석주당이익", "기본및희석주당이익(손실)","기본주당손익", "기본주당순이익", "기본주당이익", "기본주당이익(손실)", "보통주 기본 및 희석주당손익", "보통주 기본 및 희석주당이익(손실)", "보통주 기본및희석주당손익", "보통주 기본주당이익", "보통주기본주당순이익", "보통주기본주당순이익(손실)", "보통주기본주당이익", "보통주희석주당이익", "기본주당이익(손실) (단위:원)","기본주당이익(원)","보통주 기본 및 희석주당이익 (단위: 원)","기본주당계속영업이익","보통주 기본주당손익","기본주당순이익(손실)"]
+            }
+        }
+    }
+    
+    private func setDataValue(_ factor: FinancialStatementsList, dataType: DataValueType) -> DataTableValueType? {
+        if self.findKeyWord(structFinancalStatement: factor, list: dataType.words) {
+            //                                let factorData = factor.thstrmAmount
+            do {
+                let factorData = try self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
+                return DataTableValueType.string(factorData ?? "")
+            } catch {
+                print("단위가 억단위가 아닙니다.")
+            }
+        }
+        
+        return nil
+    }
+    
     private func setupAPIData() {
+        
+        let defaultValue: DataTableValueType = .string("")
+        
         for year in 2010...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
@@ -70,68 +107,27 @@ class FinancalStatementTableVC: UIViewController {
                 
                 for factor in financialData {
                     
-                    //                    if self.findKeyWord(structFinancalStatement: factor, list: self.listOfAccountWord) {
-                    //                        let factorData = factor.thstrmAmount
-                    //                        //                        print(factorData)
-                    //                        //                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
-                    //                        account = DataTableValueType.string(factorData)
-                    //                    } else if factor.accountNm.contains("영업이익")  {
-                    //                        let factorData = factor.thstrmAmount
-                    //                        //                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
-                    //                        businessProfit = DataTableValueType.string(factorData)
-                    //                    } else if factor.accountNm.contains("당기순이익") && factor.sjNm.contains("손익계산서") {
-                    //                        let factorData = factor.thstrmAmount
-                    //                        //                        let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
-                    //                        netIncome = DataTableValueType.string(factorData)
-                    ////                    } else if factor.accountNm.contains("기본") && factor.accountNm.contains("주당") {
-                    ////                        if factor.accountNm.contains("보통") {
-                    ////                            EPS = DataTableValueType.string(factor.thstrmAmount)
-                    ////                        } else {
-                    ////                            EPS = DataTableValueType.string(factor.thstrmAmount)
-                    ////                        }
-                    //                    } else if self.findKeyWord(structFinancalStatement: factor, list: self.listOfEPSWord) {
-                    //                        EPS = DataTableValueType.string(factor.thstrmAmount)
-                    //                    }
-                    
                     if account == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.accountWords) {
-                                let factorData = factor.thstrmAmount
-                                account = DataTableValueType.string(factorData)
-                            }
+                            account = self.setDataValue(factor, dataType: .account) ?? defaultValue
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.accountWords) {
-                                let factorData = factor.thstrmAmount
-                                account = DataTableValueType.string(factorData)
-                            }
+                            account = self.setDataValue(factor, dataType: .account) ?? defaultValue
                         }
                     }
                     
                     if businessProfit == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.businessProfitWords) {
-                                let factorData = factor.thstrmAmount
-                                businessProfit = DataTableValueType.string(factorData)
-                            }
+                            businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.businessProfitWords) {
-                                let factorData = factor.thstrmAmount
-                                businessProfit = DataTableValueType.string(factorData)
-                            }
+                            businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
                         }
                     }
                     
                     if netIncome == .string("") {
                         if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.netIncomeWords) {
-                                let factorData = factor.thstrmAmount
-                                netIncome = DataTableValueType.string(factorData)
-                            }
+                            netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
                         } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.netIncomeWords) {
-                                let factorData = factor.thstrmAmount
-                                netIncome = DataTableValueType.string(factorData)
-                            }
+                            netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
                         }
                     }
                     
@@ -144,6 +140,7 @@ class FinancalStatementTableVC: UIViewController {
                         } else if factor.sjNm.contains("포괄손익계산서") {
                             if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
                                 let factorData = factor.thstrmAmount
+                                //                                let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                                 EPS = DataTableValueType.string(factorData)
                             }
                         }
@@ -163,22 +160,25 @@ class FinancalStatementTableVC: UIViewController {
         }
     }
     
-    private func roundToBillion(value: Int) -> String? {
+    enum OperatorError: Error {
+        case valueIsLow
+    }
+    
+    private func roundToBillion(value: Int) throws -> String? {
         
-        //        if value == 0 {
-        //            return "nil"
-        //        } else {
-        //            let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
-        //            let str = String(billionValue)
-        //            let endIndex = str.index(str.endIndex, offsetBy: -8)
-        //            let remakeStr = String(str[..<endIndex])
-        //            return remakeStr
-        //        }
-        let billionValue = value/100000000 * 100000000 + (value % 100000000)/50000000 * 100000000
+        let billion = 100000000
+        let fiveMilion = 50000000
+        
+        let billionValue = value/billion * billion + (value % billion) / fiveMilion * billion
         let str = String(billionValue)
-        let endIndex = str.index(str.endIndex, offsetBy: -8)
-        let remakeStr = String(str[..<endIndex])
-        return remakeStr
+        
+        if str.count < 8 {
+            return nil
+        } else {
+            let endIndex = str.index(str.endIndex, offsetBy: -8)
+            let remakeStr = String(str[..<endIndex])
+            return remakeStr
+        }
     }
     
     private func findKeyWord(structFinancalStatement:FinancialStatementsList, list:[String]) -> Bool {
@@ -191,6 +191,25 @@ class FinancalStatementTableVC: UIViewController {
             }
         }
         return false
+    }
+}
+
+struct OperatorManager {
+    internal func roundToBillion(value: Int) throws -> String? {
+        
+        let billion = 100000000
+        let fiveMilion = 50000000
+        
+        let billionValue = value/billion * billion + (value % billion) / fiveMilion * billion
+        let str = String(billionValue)
+        
+        if str.count < 8 {
+            return nil
+        } else {
+            let endIndex = str.index(str.endIndex, offsetBy: -8)
+            let remakeStr = String(str[..<endIndex])
+            return remakeStr
+        }
     }
 }
 

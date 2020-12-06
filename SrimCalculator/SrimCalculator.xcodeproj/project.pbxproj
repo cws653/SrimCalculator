@@ -17,8 +17,20 @@
 		9D3A51342539473B0011A06A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A51322539473B0011A06A /* LaunchScreen.storyboard */; };
 		9D5667382545734E0085154A /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5667372545734E0085154A /* TestViewController.swift */; };
 		9D7E48E02543F08F0010B505 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E48DF2543F08F0010B505 /* DataStruct.swift */; };
+		9D874453256FF57A00F0AFC8 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D874452256FF57A00F0AFC8 /* GraphViewController.swift */; };
+		9DB60164257B5A6C0097AA87 /* SrimCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB60163257B5A6C0097AA87 /* SrimCalculatorTests.swift */; };
 		9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9DB60166257B5A6C0097AA87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9D3A511C253947390011A06A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D3A5123253947390011A06A;
+			remoteInfo = SrimCalculator;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		14EAB012F57349DEDDA8EC17 /* Pods-SrimCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.debug.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -34,6 +46,10 @@
 		9D3A51352539473B0011A06A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D5667372545734E0085154A /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		9D7E48DF2543F08F0010B505 /* DataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStruct.swift; sourceTree = "<group>"; };
+		9D874452256FF57A00F0AFC8 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		9DB60161257B5A6C0097AA87 /* SrimCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SrimCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DB60163257B5A6C0097AA87 /* SrimCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SrimCalculatorTests.swift; sourceTree = "<group>"; };
+		9DB60165257B5A6C0097AA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancalStatementTableVC.swift; sourceTree = "<group>"; };
 		CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SrimCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -44,6 +60,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				57A1B33C03B07BD202362799 /* Pods_SrimCalculator.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB6015E257B5A6C0097AA87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				9D3A5126253947390011A06A /* SrimCalculator */,
+				9DB60162257B5A6C0097AA87 /* SrimCalculatorTests */,
 				9D3A5125253947390011A06A /* Products */,
 				AB8DAA3BACE023CFF59F9F8C /* Pods */,
 				3BA85FFF6DD307619B40085B /* Frameworks */,
@@ -72,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				9D3A5124253947390011A06A /* SrimCalculator.app */,
+				9DB60161257B5A6C0097AA87 /* SrimCalculatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +108,7 @@
 				9D3A5129253947390011A06A /* SceneDelegate.swift */,
 				9D3A512B253947390011A06A /* SearchCorpVC.swift */,
 				9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */,
+				9D874452256FF57A00F0AFC8 /* GraphViewController.swift */,
 				9D5667372545734E0085154A /* TestViewController.swift */,
 				9D3A512D253947390011A06A /* Main.storyboard */,
 				9D3A51302539473B0011A06A /* Assets.xcassets */,
@@ -92,6 +118,15 @@
 				9D025ABA254992AE002B58D6 /* APIfunction.swift */,
 			);
 			path = SrimCalculator;
+			sourceTree = "<group>";
+		};
+		9DB60162257B5A6C0097AA87 /* SrimCalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				9DB60163257B5A6C0097AA87 /* SrimCalculatorTests.swift */,
+				9DB60165257B5A6C0097AA87 /* Info.plist */,
+			);
+			path = SrimCalculatorTests;
 			sourceTree = "<group>";
 		};
 		AB8DAA3BACE023CFF59F9F8C /* Pods */ = {
@@ -125,18 +160,40 @@
 			productReference = 9D3A5124253947390011A06A /* SrimCalculator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9DB60160257B5A6C0097AA87 /* SrimCalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9DB60168257B5A6C0097AA87 /* Build configuration list for PBXNativeTarget "SrimCalculatorTests" */;
+			buildPhases = (
+				9DB6015D257B5A6C0097AA87 /* Sources */,
+				9DB6015E257B5A6C0097AA87 /* Frameworks */,
+				9DB6015F257B5A6C0097AA87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9DB60167257B5A6C0097AA87 /* PBXTargetDependency */,
+			);
+			name = SrimCalculatorTests;
+			productName = SrimCalculatorTests;
+			productReference = 9DB60161257B5A6C0097AA87 /* SrimCalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		9D3A511C253947390011A06A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1170;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1170;
 				ORGANIZATIONNAME = "최원석";
 				TargetAttributes = {
 					9D3A5123253947390011A06A = {
 						CreatedOnToolsVersion = 11.7;
+					};
+					9DB60160257B5A6C0097AA87 = {
+						CreatedOnToolsVersion = 12.2;
+						TestTargetID = 9D3A5123253947390011A06A;
 					};
 				};
 			};
@@ -154,6 +211,7 @@
 			projectRoot = "";
 			targets = (
 				9D3A5123253947390011A06A /* SrimCalculator */,
+				9DB60160257B5A6C0097AA87 /* SrimCalculatorTests */,
 			);
 		};
 /* End PBXProject section */
@@ -166,6 +224,13 @@
 				9D3A51342539473B0011A06A /* LaunchScreen.storyboard in Resources */,
 				9D3A51312539473B0011A06A /* Assets.xcassets in Resources */,
 				9D3A512F253947390011A06A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9DB6015F257B5A6C0097AA87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,12 +288,29 @@
 				9D5667382545734E0085154A /* TestViewController.swift in Sources */,
 				9D7E48E02543F08F0010B505 /* DataStruct.swift in Sources */,
 				9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */,
+				9D874453256FF57A00F0AFC8 /* GraphViewController.swift in Sources */,
 				9D3A5128253947390011A06A /* AppDelegate.swift in Sources */,
 				9D3A512A253947390011A06A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9DB6015D257B5A6C0097AA87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9DB60164257B5A6C0097AA87 /* SrimCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DB60167257B5A6C0097AA87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D3A5123253947390011A06A /* SrimCalculator */;
+			targetProxy = 9DB60166257B5A6C0097AA87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9D3A512D253947390011A06A /* Main.storyboard */ = {
@@ -401,6 +483,48 @@
 			};
 			name = Release;
 		};
+		9DB60169257B5A6C0097AA87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SrimCalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.kr.CWS.SrimCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SrimCalculator.app/SrimCalculator";
+			};
+			name = Debug;
+		};
+		9DB6016A257B5A6C0097AA87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SrimCalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = co.kr.CWS.SrimCalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SrimCalculator.app/SrimCalculator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -418,6 +542,15 @@
 			buildConfigurations = (
 				9D3A51392539473B0011A06A /* Debug */,
 				9D3A513A2539473B0011A06A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9DB60168257B5A6C0097AA87 /* Build configuration list for PBXNativeTarget "SrimCalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9DB60169257B5A6C0097AA87 /* Debug */,
+				9DB6016A257B5A6C0097AA87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
