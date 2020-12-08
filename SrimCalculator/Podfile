@@ -7,6 +7,7 @@ target 'SrimCalculator' do
   pod 'Charts'
   pod 'SwiftDataTables'
   pod 'SearchTextField'
+  pod 'Charts'
   # Pods for SrimCalculator
 
 end
