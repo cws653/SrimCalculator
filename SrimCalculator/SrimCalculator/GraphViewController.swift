@@ -68,6 +68,7 @@ class cwsChart: UIView {
         
         let path = UIBezierPath()
         
+        path.lineWidth = 5
         path.move(to: CGPoint(x: 0, y: 0))
         
         for x in 0..<xCount {
