@@ -19,6 +19,7 @@
 		9D7E48E02543F08F0010B505 /* DataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D7E48DF2543F08F0010B505 /* DataStruct.swift */; };
 		9D874453256FF57A00F0AFC8 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D874452256FF57A00F0AFC8 /* GraphViewController.swift */; };
 		9DB60164257B5A6C0097AA87 /* SrimCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB60163257B5A6C0097AA87 /* SrimCalculatorTests.swift */; };
+		9DD27354258CDEC500C7B8B4 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */; };
 		9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		9DB60161257B5A6C0097AA87 /* SrimCalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SrimCalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DB60163257B5A6C0097AA87 /* SrimCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SrimCalculatorTests.swift; sourceTree = "<group>"; };
 		9DB60165257B5A6C0097AA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancalStatementTableVC.swift; sourceTree = "<group>"; };
 		CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SrimCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -109,13 +111,14 @@
 				9D3A512B253947390011A06A /* SearchCorpVC.swift */,
 				9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */,
 				9D874452256FF57A00F0AFC8 /* GraphViewController.swift */,
+				9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */,
 				9D5667372545734E0085154A /* TestViewController.swift */,
+				9D025ABA254992AE002B58D6 /* APIfunction.swift */,
+				9D7E48DF2543F08F0010B505 /* DataStruct.swift */,
 				9D3A512D253947390011A06A /* Main.storyboard */,
 				9D3A51302539473B0011A06A /* Assets.xcassets */,
 				9D3A51322539473B0011A06A /* LaunchScreen.storyboard */,
 				9D3A51352539473B0011A06A /* Info.plist */,
-				9D7E48DF2543F08F0010B505 /* DataStruct.swift */,
-				9D025ABA254992AE002B58D6 /* APIfunction.swift */,
 			);
 			path = SrimCalculator;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				9D3A512C253947390011A06A /* SearchCorpVC.swift in Sources */,
 				9D025ABB254992AE002B58D6 /* APIfunction.swift in Sources */,
 				9D5667382545734E0085154A /* TestViewController.swift in Sources */,
+				9DD27354258CDEC500C7B8B4 /* ChartsViewController.swift in Sources */,
 				9D7E48E02543F08F0010B505 /* DataStruct.swift in Sources */,
 				9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */,
 				9D874453256FF57A00F0AFC8 /* GraphViewController.swift in Sources */,
@@ -452,6 +456,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8PBQD47VFZ;
 				INFOPLIST_FILE = SrimCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -470,6 +475,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8PBQD47VFZ;
 				INFOPLIST_FILE = SrimCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -10,46 +10,66 @@ import UIKit
 
 class GraphViewController: UIViewController {
     
-    let yPosition: [Int] = [18, 8, 8, 9, 10]
-    let xPosition: [Int] = [1,2,3,4,5]
-    let testPosition: [CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
-    let takingdataOftable: [CGFloat] = []
+    //let yPosition: [Int] = [18, 8, 8, 9, 10]
+    //let xPosition: [Int] = [1,2,3,4,5]
+    //let testPosition: [CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
+    var takingdataOftable: [[CGFloat]] = []
+    
+    private let cwsLineGraph = CwsChart()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let padding: CGFloat = 100
-        let frame = CGRect(x: 0, y: 0, width: self.view.frame.width - padding, height: self.view.frame.height - padding)
-        let view = cwsLineGraph(frame: frame, values: testPosition)
-        view.backgroundColor = .gray
-        view.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.size.height / 2)
-        self.view.addSubview(view)
-        
-//        var testView = cwsChart(frame: CGRect(x: 0, y: 0, width: 100, height: 100), dataSource: self)
-//        view.backgroundColor = .blue
-//        testView.center = self.view.center
-//        self.view.addSubview(testView)
+        self.cwsLineGraph.dataSource = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        self.setLineGraph()
+    }
+    
+    private func setLineGraph() {
+        self.cwsLineGraph.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(cwsLineGraph)
+        self.cwsLineGraph.backgroundColor = .green
         
+        self.cwsLineGraph.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
+        self.cwsLineGraph.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
+        self.cwsLineGraph.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
+        self.cwsLineGraph.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
     }
 }
 
-class cwsLineGraph: UIView {
+extension GraphViewController: CwsChartDataSource {
+    func cwsChartNumberOfData() -> Int {
+        return self.takingdataOftable.count
+    }
+    
+    func cwsChartEachPoint(_ index: Int) -> CGFloat {
+        return CGFloat(self.takingdataOftable[index][1])
+    }
+}
+
+protocol CwsChartDataSource: class {
+    func cwsChartNumberOfData() -> Int
+
+    func cwsChartEachPoint(_ xPoistion: Int) -> CGFloat
+}
+
+class CwsChart: UIView {
     
     var values: [CGFloat] = []
     
-    var graphPath: UIBezierPath!
-    var zeroPath: UIBezierPath!
+    var graphPath: UIBezierPath?
+    var zeroPath: UIBezierPath?
     
     let graphLayer = CAShapeLayer()
     
-    init(frame: CGRect, values: [CGFloat]) {
-        super.init(frame: frame)
-        self.values = values
+    internal weak var dataSource: CwsChartDataSource?
+    
+    init() {
+        super.init(frame: CGRect())
     }
     
     required init?(coder: NSCoder) {
@@ -57,92 +77,66 @@ class cwsLineGraph: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        super.draw(rect)
         
         self.graphPath = UIBezierPath()
         self.zeroPath = UIBezierPath()
         
+        let xOffset: CGFloat = self.frame.width / CGFloat(self.dataSource?.cwsChartNumberOfData() ?? Int(0.0))
+        
+        self.addLinePath(xOffset: xOffset)
+        self.setGraphLayer()
+        
         self.layer.addSublayer(graphLayer)
-        
-        let xOffset: CGFloat = self.frame.width / CGFloat(values.count)
-        
+    
+        self.drawAnimation()
+    }
+    
+    private func addLinePath(xOffset: CGFloat) {
         var currentX: CGFloat = 0
-        self.graphPath.move(to: CGPoint(x: currentX, y: self.frame.height))
-        self.zeroPath.move(to: CGPoint(x: currentX, y: self.frame.height))
         
-        for i in 0..<values.count {
-            currentX += xOffset
-            let newPosition = CGPoint(x: currentX, y: self.frame.height - self.values[i])
-            self.graphPath.addLine(to: newPosition)
-            self.zeroPath.addLine(to: CGPoint(x: currentX, y: self.frame.height))
+        self.graphPath?.move(to: CGPoint(x: currentX, y: self.frame.height))
+        self.zeroPath?.move(to: CGPoint(x: currentX, y: self.frame.height) )
+        
+        let datacount = self.dataSource?.cwsChartNumberOfData() ?? 0
+        
+        var max: CGFloat = 0
+        for i in 0..<datacount {
+            let data = self.dataSource?.cwsChartEachPoint(i) ?? -1
+            max = data > max ? data : max
         }
         
+        for i in 0..<datacount {
+            currentX += xOffset
+            let accountInformation = (self.dataSource?.cwsChartEachPoint(i) ?? -1) * (self.frame.height / max)
+            
+            let newPosition = CGPoint(x: currentX, y: self.frame.height - accountInformation)
+            self.graphPath?.addLine(to: newPosition)
+            print("cws \(newPosition)")
+            self.zeroPath?.addLine(to: CGPoint(x: currentX, y: self.frame.height))
+        }
+    }
+    
+    private func setGraphLayer() {
         graphLayer.fillColor = nil
         graphLayer.strokeColor = UIColor.black.cgColor
         graphLayer.lineWidth = 2
         
-        
-        let oldPath = self.zeroPath.cgPath
-        let newPath = self.graphPath.cgPath
+        guard let cgPath = self.graphPath?.cgPath else { return }
+        self.graphLayer.path = cgPath
+    }
+    
+    private func drawAnimation() {
+        let oldPath = self.zeroPath?.cgPath
+        let newPath = self.graphPath?.cgPath
         
         let animation = CABasicAnimation(keyPath: "path")
         animation.duration = 0.9
         animation.fromValue = oldPath
         animation.toValue = newPath
         
-        self.graphLayer.path = newPath
+        guard let newCGPath = newPath else { return }
+        
+        self.graphPath?.cgPath = newCGPath
         self.graphLayer.add(animation, forKey: "path")
-        
-    }
-}
-
-
-
-extension GraphViewController: cwsChartDataSource {
-    func cwsChartNumberOfXCount() -> Int {
-        return xPosition.count
-    }
-    
-    func cwsChartNUmberOfYCount() -> Int {
-        return yPosition.count
-    }
-    
-    func cwsChartEachPoint(_ xPoistion: Int) -> Int {
-        return self.yPosition[xPoistion]
-    }
-}
-
-protocol cwsChartDataSource: class {
-    func cwsChartNumberOfXCount() -> Int
-    func cwsChartNUmberOfYCount() -> Int
-
-    func cwsChartEachPoint(_ xPoistion: Int) -> Int
-}
-
-class cwsChart: UIView {
-    
-    internal weak var dataSource: cwsChartDataSource?
-    
-    init(frame: CGRect, dataSource: cwsChartDataSource) {
-        super.init(frame: frame)
-        
-        self.dataSource = dataSource
-        
-        self.backgroundColor = .green
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func draw(_ rect: CGRect) {
-        
-        let path = UIBezierPath()
-        path.move(to: .zero)
-//        path.addCurve(to: CGPoint(x: 100, y: 100), controlPoint1: CGPoint(x: 0, y: 100), controlPoint2: CGPoint(x: 100, y: 0))
-        path.addQuadCurve(to: CGPoint(x: 30, y: 0), controlPoint: CGPoint(x: 20, y: 40))
-        
-        UIColor.orange.set()
-        path.stroke()
     }
 }
