@@ -24,6 +24,9 @@ class FinancalStatementTableVC: UIViewController {
     let netIncomeWords: [String] = ["당기순손익", "당기순이익", "당기순이익(손실)", "당기의 순이익"]
     let EPSWords: [String] = ["기본 및 희석 보통주당이익", "기본 및 희석주당이익", "기본 및 희석주당이익(보통주)", "기본/희석주당순이익", "기본및희석주당계속영업이익", "기본및희석주당이익", "기본및희석주당이익(손실)","기본주당손익", "기본주당순이익", "기본주당이익", "기본주당이익(손실)", "보통주 기본 및 희석주당손익", "보통주 기본 및 희석주당이익(손실)", "보통주 기본및희석주당손익", "보통주 기본주당이익", "보통주기본주당순이익", "보통주기본주당순이익(손실)", "보통주기본주당이익", "보통주희석주당이익", "기본주당이익(손실) (단위:원)","기본주당이익(원)","보통주 기본 및 희석주당이익 (단위: 원)","기본주당계속영업이익","보통주 기본주당손익","기본주당순이익(손실)"]
     
+    var dataDelivariedToGraph:[CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
+    var accountDataDelivariedToGraph: [[CGFloat]] = []
+    
     private let APIInstanceClass = APIClass()
     
     override func viewDidLoad() {
@@ -32,10 +35,14 @@ class FinancalStatementTableVC: UIViewController {
         setupViews()
         setupConstraints()
         setupAPIData()
+    
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        if let graphViewController = self.tabBarController?.viewControllers?[1] as? GraphViewController {
+            graphViewController.takingdataOftable = accountDataDelivariedToGraph
+        }
     }
     
     private func setupViews() {
@@ -48,7 +55,7 @@ class FinancalStatementTableVC: UIViewController {
         view.addSubview(dataTable)
         dataTable.reload()
     }
-    
+
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             dataTable.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -147,15 +154,17 @@ class FinancalStatementTableVC: UIViewController {
                     }
                 }
                 let temp = [year, account, businessProfit, netIncome, EPS]
+                self.accountDataDelivariedToGraph.append(temp.map { $0.toCGFloat ?? Self.defaultCGFloatValue })
                 self.updateDataSourece(temp)
             }
         }
     }
     
+    static var defaultCGFloatValue: CGFloat = -1
+    
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
         DispatchQueue.main.async {
             self.dataSource.append(dataSource)
-            //            self.dataSource.sort { ($0.first ?? DataTableValueType.int(1)) < ($1.first ?? DataTableValueType.int(1)) }
             self.dataTable.reload()
         }
     }
@@ -256,5 +265,23 @@ extension FinancalStatementTableVC: SwiftDataTableDelegate {
     
     func heightForSectionFooter(in dataTable: SwiftDataTable) -> CGFloat {
         return 0.1
+    }
+}
+
+extension DataTableValueType {
+    var toCGFloat: CGFloat? {
+        switch self {
+        case .double(let value):
+            return CGFloat(value)
+        case .float(let value):
+            return CGFloat(value)
+        case .int(let value):
+            return CGFloat(value)
+        case .string(let value):
+            if let number = NumberFormatter().number(from: value) {
+                return CGFloat(number)
+            }
+            return nil
+        }
     }
 }
