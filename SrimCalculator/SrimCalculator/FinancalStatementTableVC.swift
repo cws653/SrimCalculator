@@ -26,6 +26,7 @@ class FinancalStatementTableVC: UIViewController {
     
     var dataDelivariedToGraph:[CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
     var accountDataDelivariedToGraph: [[CGFloat]] = []
+    var accountDataDelivariedToChart: [[Double]] = []
     
     private let APIInstanceClass = APIClass()
     
@@ -35,13 +36,15 @@ class FinancalStatementTableVC: UIViewController {
         setupViews()
         setupConstraints()
         setupAPIData()
-    
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        if let graphViewController = self.tabBarController?.viewControllers?[1] as? GraphViewController {
-            graphViewController.takingdataOftable = accountDataDelivariedToGraph
+//        if let graphViewController = self.tabBarController?.viewControllers?[1] as? GraphViewController {
+//            graphViewController.takingdataOftable = accountDataDelivariedToGraph
+//        }
+        if let chartViewController = self.tabBarController?.viewControllers?[2] as? ChartsViewController {
+            chartViewController.takingdataOftable = accountDataDelivariedToChart
         }
     }
     
@@ -55,7 +58,7 @@ class FinancalStatementTableVC: UIViewController {
         view.addSubview(dataTable)
         dataTable.reload()
     }
-
+    
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             dataTable.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -155,12 +158,14 @@ class FinancalStatementTableVC: UIViewController {
                 }
                 let temp = [year, account, businessProfit, netIncome, EPS]
                 self.accountDataDelivariedToGraph.append(temp.map { $0.toCGFloat ?? Self.defaultCGFloatValue })
+                self.accountDataDelivariedToChart.append(temp.map { $0.toDouble ?? Self.defaultDoubleValue})
                 self.updateDataSourece(temp)
             }
         }
     }
     
     static var defaultCGFloatValue: CGFloat = -1
+    static var defaultDoubleValue: Double = -1
     
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
         DispatchQueue.main.async {
@@ -280,6 +285,24 @@ extension DataTableValueType {
         case .string(let value):
             if let number = NumberFormatter().number(from: value) {
                 return CGFloat(number)
+            }
+            return nil
+        }
+    }
+}
+
+extension DataTableValueType {
+    var toDouble: Double? {
+        switch self {
+        case .double(let value):
+            return Double(value)
+        case .float(let value):
+            return Double(value)
+        case .int(let value):
+            return Double(value)
+        case .string(let value):
+            if let number = NumberFormatter().number(from: value) {
+                return Double(number)
             }
             return nil
         }
