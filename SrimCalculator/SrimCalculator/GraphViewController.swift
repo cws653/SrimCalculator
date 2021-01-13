@@ -26,6 +26,10 @@ class GraphViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 80, height: 40))
+//        label.text = "안녕"
+//        self.view.addSubview(label)
+        
         self.setLineGraph()
     }
     
@@ -37,7 +41,7 @@ class GraphViewController: UIViewController {
         self.cwsLineGraph.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10).isActive = true
         self.cwsLineGraph.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10).isActive = true
         self.cwsLineGraph.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50).isActive = true
-        self.cwsLineGraph.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        self.cwsLineGraph.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -50).isActive = true
     }
 }
 
@@ -59,7 +63,7 @@ protocol CwsChartDataSource: class {
 
 class CwsChart: UIView {
     
-    var values: [CGFloat] = []
+    var xValueLabel: UILabel?
     
     var graphPath: UIBezierPath?
     var zeroPath: UIBezierPath?
@@ -103,6 +107,8 @@ class CwsChart: UIView {
         for i in 0..<datacount {
             let data = self.dataSource?.cwsChartEachPoint(i) ?? -1
             max = data > max ? data : max
+        max = max * 1.1
+            
         }
         
         for i in 0..<datacount {
@@ -138,5 +144,10 @@ class CwsChart: UIView {
         
         self.graphPath?.cgPath = newCGPath
         self.graphLayer.add(animation, forKey: "path")
+    }
+    
+    private func settingLabelPosition() {
+        let xOffset: CGFloat = self.frame.width / CGFloat(self.dataSource?.cwsChartNumberOfData() ?? Int(0.0))
+        
     }
 }
