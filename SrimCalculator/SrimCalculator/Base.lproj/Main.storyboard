@@ -269,39 +269,63 @@
                                 <rect key="frame" x="50" y="114" width="314" height="330"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cmk-Oe-ZZ9">
+                                <rect key="frame" x="0.0" y="474" width="414" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRs-gP-5um">
+                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="매출액"/>
+                                        <connections>
+                                            <action selector="clickAccountButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="rDp-LX-OzA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzK-Fc-vgY">
+                                        <rect key="frame" x="106.5" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="영업이익"/>
+                                        <connections>
+                                            <action selector="clickBusinessButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="Ptd-y9-C3T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ent-k4-404">
+                                        <rect key="frame" x="213" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="당기순이익"/>
+                                        <connections>
+                                            <action selector="clickNetIncomeButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="a6e-Td-Iyl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tP7-1q-Y6r">
+                                        <rect key="frame" x="319.5" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="EPS"/>
+                                        <connections>
+                                            <action selector="clickEPSButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="01M-dH-v9w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tP7-1q-Y6r" firstAttribute="width" secondItem="BRs-gP-5um" secondAttribute="width" id="Wij-BR-MdX"/>
+                                    <constraint firstItem="Ent-k4-404" firstAttribute="width" secondItem="BRs-gP-5um" secondAttribute="width" id="kPJ-SC-HTc"/>
+                                    <constraint firstItem="bzK-Fc-vgY" firstAttribute="width" secondItem="BRs-gP-5um" secondAttribute="width" id="lb7-ro-8bZ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xyv-Zh-o8I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hiH-dF-bUk" firstAttribute="top" secondItem="xyv-Zh-o8I" secondAttribute="top" constant="70" id="9pR-RY-H6g"/>
                             <constraint firstItem="xyv-Zh-o8I" firstAttribute="bottom" secondItem="hiH-dF-bUk" secondAttribute="bottom" constant="320" id="Aza-cM-8PX"/>
+                            <constraint firstItem="cmk-Oe-ZZ9" firstAttribute="top" secondItem="hiH-dF-bUk" secondAttribute="bottom" constant="30" id="HUB-gM-k2x"/>
                             <constraint firstItem="xyv-Zh-o8I" firstAttribute="trailing" secondItem="hiH-dF-bUk" secondAttribute="trailing" constant="50" id="Rd7-Cx-BNa"/>
+                            <constraint firstItem="xyv-Zh-o8I" firstAttribute="trailing" secondItem="cmk-Oe-ZZ9" secondAttribute="trailing" id="d3R-Ia-0Fb"/>
+                            <constraint firstItem="cmk-Oe-ZZ9" firstAttribute="leading" secondItem="xyv-Zh-o8I" secondAttribute="leading" id="fZE-hn-VeV"/>
                             <constraint firstItem="hiH-dF-bUk" firstAttribute="leading" secondItem="xyv-Zh-o8I" secondAttribute="leading" constant="50" id="hS0-Cl-eA0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="n04-89-aXf"/>
-                    <toolbarItems>
-                        <barButtonItem title="매출액" id="PxK-CB-659">
-                            <connections>
-                                <action selector="clickAccountButton:" destination="bbj-Zd-NbL" id="qhc-zw-EcW"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="영업이익" width="138.5" id="xfM-WF-ddM">
-                            <connections>
-                                <action selector="clickBusinessProfit:" destination="bbj-Zd-NbL" id="alh-gi-KaH"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="당기순이익" id="Zha-ek-zEE">
-                            <connections>
-                                <action selector="clickNetIncome:" destination="bbj-Zd-NbL" id="YAf-Mk-eVC"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem title="EPS" width="269.5" id="PbT-th-2oE">
-                            <connections>
-                                <action selector="clickEPSButton:" destination="bbj-Zd-NbL" id="1a0-hJ-rzH"/>
-                            </connections>
-                        </barButtonItem>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="3j1-1X-Yrm"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -338,6 +362,14 @@
                         <viewLayoutGuide key="safeArea" id="VIz-e6-Qvl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="e82-po-mAb">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem title="Item" id="yDU-qU-5db"/>
+                        <barButtonItem title="Item" id="aks-qx-Ir6"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJj-Fp-Acz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
