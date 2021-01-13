@@ -257,7 +257,7 @@
             </objects>
             <point key="canvasLocation" x="3100" y="374"/>
         </scene>
-        <!--Item-->
+        <!--Title-->
         <scene sceneID="gwn-gk-FfY">
             <objects>
                 <viewController id="bbj-Zd-NbL" customClass="ChartsViewController" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -266,7 +266,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-dF-bUk" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="50" y="114" width="314" height="379"/>
+                                <rect key="frame" x="50" y="114" width="314" height="330"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                         </subviews>
@@ -280,6 +280,30 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="n04-89-aXf"/>
+                    <toolbarItems>
+                        <barButtonItem title="매출액" id="PxK-CB-659">
+                            <connections>
+                                <action selector="clickAccountButton:" destination="bbj-Zd-NbL" id="qhc-zw-EcW"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="영업이익" width="138.5" id="xfM-WF-ddM">
+                            <connections>
+                                <action selector="clickBusinessProfit:" destination="bbj-Zd-NbL" id="alh-gi-KaH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="당기순이익" id="Zha-ek-zEE">
+                            <connections>
+                                <action selector="clickNetIncome:" destination="bbj-Zd-NbL" id="YAf-Mk-eVC"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="EPS" width="269.5" id="PbT-th-2oE">
+                            <connections>
+                                <action selector="clickEPSButton:" destination="bbj-Zd-NbL" id="1a0-hJ-rzH"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Title" id="3j1-1X-Yrm"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lineGraphView" destination="hiH-dF-bUk" id="C5f-ds-qut"/>
                     </connections>
@@ -303,6 +327,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kW-Ww-OqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3100" y="-358"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pGF-dn-inS">
+            <objects>
+                <viewController id="nYI-xX-yO9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9oS-8J-S4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VIz-e6-Qvl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJj-Fp-Acz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4029" y="-358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ltc-qC-1Rn">

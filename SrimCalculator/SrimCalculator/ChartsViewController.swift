@@ -12,7 +12,28 @@ import Charts
 class ChartsViewController: UIViewController {
     
     @IBOutlet weak var lineGraphView: LineChartView!
-    var takingdataOftable: [[Double]] = []
+    var accoutDatas: [[Double]] = []
+    var businessDatas: [[Double]] = []
+    var netIncomeDatas: [[Double]] = []
+    var EPSDatas: [[Double]] = []
+    
+    @IBAction func clickAccountButton(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func clickBusinessProfit(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func clickNetIncome(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    @IBAction func clickEPSButton(_ sender: UIBarButtonItem) {
+        
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +61,7 @@ class ChartsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setChartDefault()
+        setChartDefault(inputDataType: .account)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,12 +71,22 @@ class ChartsViewController: UIViewController {
     
     struct TableData {
         let years: Int
-        let unitSold: Double
+        let account: Double
+//        let businessProfit: Double
+//        let netIncome: Double
+//        let EPS: Double
     }
     
     var tableData: [TableData] = []
     
-    private func setChartDefault() {
+    enum inputDataType {
+        case account
+        case businessProfit
+        case netIncome
+        case EPS
+    }
+    
+    private func setChartDefault(inputDataType: inputDataType) {
         //        var months: [Double] = []
         //        for index in 0..<takingdataOftable.count {
         //            months.append(takingdataOftable[index][0])
@@ -64,16 +95,33 @@ class ChartsViewController: UIViewController {
         //        for index in 0..<takingdataOftable.count {
         //         a   unitsSold.append(takingdataOftable[index][1])
         //        }
-        
-        for index in 0..<takingdataOftable.count {
-            let tableDataFactor = TableData(years: Int(takingdataOftable[index][0]), unitSold: takingdataOftable[index][1])
-            tableData.append(tableDataFactor)
+        switch inputDataType {
+        case .account:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), account: accoutDatas[index][1])
+                tableData.append(tableDataFactor)
+            }
+        case .businessProfit:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), account: accoutDatas[index][1])
+                tableData.append(tableDataFactor)
+            }
+        case .netIncome:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), account: accoutDatas[index][1])
+                tableData.append(tableDataFactor)
+            }
+        case .EPS:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), account: accoutDatas[index][1])
+                tableData.append(tableDataFactor)
+            }
         }
         
         let sortedTableData = tableData.sorted { $0.years < $1.years }
         
         let changingYearsToString = sortedTableData.map { String($0.years) }
-        let unitsSold = sortedTableData.map { $0.unitSold }
+        let unitsSold = sortedTableData.map { $0.account }
         
         lineGraphView.noDataText = "데이터가 없습니다."
         lineGraphView.noDataFont = .systemFont(ofSize: 20)
@@ -106,5 +154,7 @@ class ChartsViewController: UIViewController {
 //        lineGraphView.leftAxis.axisMaximum = max
 //        lineGraphView.leftAxis.axisMinimum =
     }
+    
+    
 }
 
