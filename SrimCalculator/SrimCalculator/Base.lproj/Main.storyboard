@@ -257,7 +257,7 @@
             </objects>
             <point key="canvasLocation" x="3100" y="374"/>
         </scene>
-        <!--Item-->
+        <!--Title-->
         <scene sceneID="gwn-gk-FfY">
             <objects>
                 <viewController id="bbj-Zd-NbL" customClass="ChartsViewController" customModule="SrimCalculator" customModuleProvider="target" sceneMemberID="viewController">
@@ -266,20 +266,68 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiH-dF-bUk" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="50" y="114" width="314" height="379"/>
+                                <rect key="frame" x="50" y="114" width="314" height="330"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="cmk-Oe-ZZ9">
+                                <rect key="frame" x="0.0" y="474" width="414" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BRs-gP-5um">
+                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="매출액"/>
+                                        <connections>
+                                            <action selector="clickAccountButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="rDp-LX-OzA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bzK-Fc-vgY">
+                                        <rect key="frame" x="106.5" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="영업이익"/>
+                                        <connections>
+                                            <action selector="clickBusinessButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="Ptd-y9-C3T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ent-k4-404">
+                                        <rect key="frame" x="213" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="당기순이익"/>
+                                        <connections>
+                                            <action selector="clickNetIncomeButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="a6e-Td-Iyl"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tP7-1q-Y6r">
+                                        <rect key="frame" x="319.5" y="0.0" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="EPS"/>
+                                        <connections>
+                                            <action selector="clickEPSButton:" destination="bbj-Zd-NbL" eventType="touchUpInside" id="01M-dH-v9w"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="tP7-1q-Y6r" firstAttribute="width" secondItem="BRs-gP-5um" secondAttribute="width" id="Wij-BR-MdX"/>
+                                    <constraint firstItem="Ent-k4-404" firstAttribute="width" secondItem="BRs-gP-5um" secondAttribute="width" id="kPJ-SC-HTc"/>
+                                    <constraint firstItem="bzK-Fc-vgY" firstAttribute="width" secondItem="BRs-gP-5um" secondAttribute="width" id="lb7-ro-8bZ"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xyv-Zh-o8I"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="hiH-dF-bUk" firstAttribute="top" secondItem="xyv-Zh-o8I" secondAttribute="top" constant="70" id="9pR-RY-H6g"/>
                             <constraint firstItem="xyv-Zh-o8I" firstAttribute="bottom" secondItem="hiH-dF-bUk" secondAttribute="bottom" constant="320" id="Aza-cM-8PX"/>
+                            <constraint firstItem="cmk-Oe-ZZ9" firstAttribute="top" secondItem="hiH-dF-bUk" secondAttribute="bottom" constant="30" id="HUB-gM-k2x"/>
                             <constraint firstItem="xyv-Zh-o8I" firstAttribute="trailing" secondItem="hiH-dF-bUk" secondAttribute="trailing" constant="50" id="Rd7-Cx-BNa"/>
+                            <constraint firstItem="xyv-Zh-o8I" firstAttribute="trailing" secondItem="cmk-Oe-ZZ9" secondAttribute="trailing" id="d3R-Ia-0Fb"/>
+                            <constraint firstItem="cmk-Oe-ZZ9" firstAttribute="leading" secondItem="xyv-Zh-o8I" secondAttribute="leading" id="fZE-hn-VeV"/>
                             <constraint firstItem="hiH-dF-bUk" firstAttribute="leading" secondItem="xyv-Zh-o8I" secondAttribute="leading" constant="50" id="hS0-Cl-eA0"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="n04-89-aXf"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Title" id="3j1-1X-Yrm"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="lineGraphView" destination="hiH-dF-bUk" id="C5f-ds-qut"/>
                     </connections>
@@ -303,6 +351,29 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3kW-Ww-OqT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3100" y="-358"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pGF-dn-inS">
+            <objects>
+                <viewController id="nYI-xX-yO9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9oS-8J-S4Z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VIz-e6-Qvl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="e82-po-mAb">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem title="Item" id="yDU-qU-5db"/>
+                        <barButtonItem title="Item" id="aks-qx-Ir6"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJj-Fp-Acz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4029" y="-358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ltc-qC-1Rn">

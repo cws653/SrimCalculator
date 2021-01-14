@@ -12,7 +12,31 @@ import Charts
 class ChartsViewController: UIViewController {
     
     @IBOutlet weak var lineGraphView: LineChartView!
-    var takingdataOftable: [[Double]] = []
+    var accoutDatas: [[Double]] = []
+    var businessDatas: [[Double]] = []
+    var netIncomeDatas: [[Double]] = []
+    var EPSDatas: [[Double]] = []
+    
+    
+    @IBAction func clickAccountButton(_ sender: UIButton) {
+        tableData = []
+        setChartDefault(inputDataType: .account)
+    }
+    
+    @IBAction func clickBusinessButton(_ sender: UIButton) {
+        tableData = []
+        setChartDefault(inputDataType: .businessProfit)
+    }
+    
+    @IBAction func clickNetIncomeButton(_ sender: UIButton) {
+        tableData = []
+        setChartDefault(inputDataType: .netIncome)
+    }
+    
+    @IBAction func clickEPSButton(_ sender: UIButton) {
+        tableData = []
+        setChartDefault(inputDataType: .EPS)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +64,7 @@ class ChartsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setChartDefault()
+        setChartDefault(inputDataType: .account)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,12 +74,31 @@ class ChartsViewController: UIViewController {
     
     struct TableData {
         let years: Int
-        let unitSold: Double
+        let valueData: Double
+//        let businessProfit: Double
+//        let netIncome: Double
+//        let EPS: Double
     }
     
     var tableData: [TableData] = []
     
-    private func setChartDefault() {
+    enum inputDataType {
+        case account
+        case businessProfit
+        case netIncome
+        case EPS
+        
+        var title: String {
+            switch self {
+            case .account: return "매출액"
+            case .businessProfit: return "영업이익"
+            case .netIncome: return "당기순이익"
+            case .EPS: return "EPS"
+            }
+        }
+    }
+    
+    private func setChartDefault(inputDataType: inputDataType) {
         //        var months: [Double] = []
         //        for index in 0..<takingdataOftable.count {
         //            months.append(takingdataOftable[index][0])
@@ -64,25 +107,41 @@ class ChartsViewController: UIViewController {
         //        for index in 0..<takingdataOftable.count {
         //         a   unitsSold.append(takingdataOftable[index][1])
         //        }
-        
-        for index in 0..<takingdataOftable.count {
-            let tableDataFactor = TableData(years: Int(takingdataOftable[index][0]), unitSold: takingdataOftable[index][1])
-            tableData.append(tableDataFactor)
+        switch inputDataType {
+        case .account:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][1])
+                tableData.append(tableDataFactor)
+            }
+        case .businessProfit:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][2])
+                tableData.append(tableDataFactor)
+            }
+        case .netIncome:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][3])
+                tableData.append(tableDataFactor)
+            }
+        case .EPS:
+            for index in 0..<accoutDatas.count {
+                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][4])
+                tableData.append(tableDataFactor)
+            }
         }
         
         let sortedTableData = tableData.sorted { $0.years < $1.years }
-        
         let changingYearsToString = sortedTableData.map { String($0.years) }
-        let unitsSold = sortedTableData.map { $0.unitSold }
+        let yAxisData = sortedTableData.map { $0.valueData }
         
         lineGraphView.noDataText = "데이터가 없습니다."
         lineGraphView.noDataFont = .systemFont(ofSize: 20)
         lineGraphView.noDataTextColor = .lightGray
         
-        setChart(dataPoints: changingYearsToString, values: unitsSold)
+        setChart(dataPoints: changingYearsToString, values: yAxisData, inputDataType: inputDataType)
     }
     
-    private func setChart(dataPoints: [String], values: [Double]) {
+    private func setChart(dataPoints: [String], values: [Double], inputDataType: inputDataType) {
         var lineChartEntry = [ChartDataEntry]()
         
         for i in 0..<dataPoints.count {
@@ -90,7 +149,13 @@ class ChartsViewController: UIViewController {
             lineChartEntry.append(dataEntry)
         }
         
-        let line = LineChartDataSet(entries: lineChartEntry, label: "단위(억)")
+        var line = LineChartDataSet()
+        if inputDataType == .EPS {
+            line = LineChartDataSet(entries: lineChartEntry, label: "단위(원)")
+        } else {
+            line = LineChartDataSet(entries: lineChartEntry, label: "단위(억원)")
+        }
+
         line.colors = [NSUIColor.blue]
         line.highlightEnabled = false
         
@@ -106,5 +171,7 @@ class ChartsViewController: UIViewController {
 //        lineGraphView.leftAxis.axisMaximum = max
 //        lineGraphView.leftAxis.axisMinimum =
     }
+    
+    
 }
 

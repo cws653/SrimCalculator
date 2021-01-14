@@ -25,8 +25,17 @@ class FinancalStatementTableVC: UIViewController {
     let EPSWords: [String] = ["기본 및 희석 보통주당이익", "기본 및 희석주당이익", "기본 및 희석주당이익(보통주)", "기본/희석주당순이익", "기본및희석주당계속영업이익", "기본및희석주당이익", "기본및희석주당이익(손실)","기본주당손익", "기본주당순이익", "기본주당이익", "기본주당이익(손실)", "보통주 기본 및 희석주당손익", "보통주 기본 및 희석주당이익(손실)", "보통주 기본및희석주당손익", "보통주 기본주당이익", "보통주기본주당순이익", "보통주기본주당순이익(손실)", "보통주기본주당이익", "보통주희석주당이익", "기본주당이익(손실) (단위:원)","기본주당이익(원)","보통주 기본 및 희석주당이익 (단위: 원)","기본주당계속영업이익","보통주 기본주당손익","기본주당순이익(손실)"]
     
     var dataDelivariedToGraph:[CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
+    
     var accountDataDelivariedToGraph: [[CGFloat]] = []
     var accountDataDelivariedToChart: [[Double]] = []
+//    var businessProfitDataDelivariedToChart: [[Double]] = []
+//    var netIncomeDataDelivariedTodChart: [[Double]] = []
+//    var EPSIncomeDataDelivariedToChart: [[Double]] = []
+    
+    //    case account
+    //    case businessProfit
+    //    case netIncome
+    //    case EPS
     
     private let APIInstanceClass = APIClass()
     
@@ -44,7 +53,7 @@ class FinancalStatementTableVC: UIViewController {
 //            graphViewController.takingdataOftable = accountDataDelivariedToGraph
 //        }
         if let chartViewController = self.tabBarController?.viewControllers?[2] as? ChartsViewController {
-            chartViewController.takingdataOftable = accountDataDelivariedToChart
+            chartViewController.accoutDatas = accountDataDelivariedToChart
         }
     }
     
