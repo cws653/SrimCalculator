@@ -12,11 +12,7 @@ import Charts
 class ChartsViewController: UIViewController {
     
     @IBOutlet weak var lineGraphView: LineChartView!
-    var accoutDatas: [[Double]] = []
-    var businessDatas: [[Double]] = []
-    var netIncomeDatas: [[Double]] = []
-    var EPSDatas: [[Double]] = []
-    
+    var useForMakingCharts: [[Double]] = []
     
     @IBAction func clickAccountButton(_ sender: UIButton) {
         tableData = []
@@ -109,23 +105,23 @@ class ChartsViewController: UIViewController {
         //        }
         switch inputDataType {
         case .account:
-            for index in 0..<accoutDatas.count {
-                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][1])
+            for index in 0..<useForMakingCharts.count {
+                let tableDataFactor = TableData(years: Int(useForMakingCharts[index][0]), valueData: useForMakingCharts[index][1])
                 tableData.append(tableDataFactor)
             }
         case .businessProfit:
-            for index in 0..<accoutDatas.count {
-                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][2])
+            for index in 0..<useForMakingCharts.count {
+                let tableDataFactor = TableData(years: Int(useForMakingCharts[index][0]), valueData: useForMakingCharts[index][2])
                 tableData.append(tableDataFactor)
             }
         case .netIncome:
-            for index in 0..<accoutDatas.count {
-                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][3])
+            for index in 0..<useForMakingCharts.count {
+                let tableDataFactor = TableData(years: Int(useForMakingCharts[index][0]), valueData: useForMakingCharts[index][3])
                 tableData.append(tableDataFactor)
             }
         case .EPS:
-            for index in 0..<accoutDatas.count {
-                let tableDataFactor = TableData(years: Int(accoutDatas[index][0]), valueData: accoutDatas[index][4])
+            for index in 0..<useForMakingCharts.count {
+                let tableDataFactor = TableData(years: Int(useForMakingCharts[index][0]), valueData: useForMakingCharts[index][4])
                 tableData.append(tableDataFactor)
             }
         }
@@ -138,40 +134,46 @@ class ChartsViewController: UIViewController {
         lineGraphView.noDataFont = .systemFont(ofSize: 20)
         lineGraphView.noDataTextColor = .lightGray
         
-        setChart(dataPoints: changingYearsToString, values: yAxisData, inputDataType: inputDataType)
+        setChart(xAxisData: changingYearsToString, yAxisData: yAxisData, inputDataType: inputDataType)
     }
     
-    private func setChart(dataPoints: [String], values: [Double], inputDataType: inputDataType) {
+    private func setChart(xAxisData: [String], yAxisData: [Double], inputDataType: inputDataType) {
         var lineChartEntry = [ChartDataEntry]()
         
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
+        for i in 0..<xAxisData.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: yAxisData[i])
             lineChartEntry.append(dataEntry)
         }
         
-        var line = LineChartDataSet()
+        var lineDataSet = LineChartDataSet()
         if inputDataType == .EPS {
-            line = LineChartDataSet(entries: lineChartEntry, label: "단위(원)")
+            lineDataSet = LineChartDataSet(entries: lineChartEntry, label: "단위(원)")
         } else {
-            line = LineChartDataSet(entries: lineChartEntry, label: "단위(억원)")
+            lineDataSet = LineChartDataSet(entries: lineChartEntry, label: "단위(억원)")
         }
 
-        line.colors = [NSUIColor.blue]
-        line.highlightEnabled = false
+        lineDataSet.colors = [NSUIColor.blue]
+        lineDataSet.highlightEnabled = false
         
-        let data = LineChartData(dataSet: line)
+        let data = LineChartData(dataSet: lineDataSet)
         lineGraphView.data = data
         
         lineGraphView.xAxis.labelPosition = .bottom
-        lineGraphView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dataPoints)
-        lineGraphView.xAxis.setLabelCount(dataPoints.count-1, force: false)
+        lineGraphView.xAxis.valueFormatter = IndexAxisValueFormatter(values: xAxisData)
+        lineGraphView.xAxis.setLabelCount(xAxisData.count-1, force: false)
         lineGraphView.rightAxis.enabled = false
         lineGraphView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0)
         
 //        lineGraphView.leftAxis.axisMaximum = max
-//        lineGraphView.leftAxis.axisMinimum =
+//        lineGraphView.leftAxis.axisMinimum = minimum
     }
-    
-    
 }
 
+extension Array {
+    public subscript(index: Int, default defaultValue: @autoclosure () -> Element) -> Element {
+        guard index >= 0, index < endIndex else {
+            return defaultValue()
+        }
+        return self[index]
+    }
+}

@@ -53,7 +53,7 @@ class FinancalStatementTableVC: UIViewController {
 //            graphViewController.takingdataOftable = accountDataDelivariedToGraph
 //        }
         if let chartViewController = self.tabBarController?.viewControllers?[2] as? ChartsViewController {
-            chartViewController.accoutDatas = accountDataDelivariedToChart
+            chartViewController.useForMakingCharts = accountDataDelivariedToChart
         }
     }
     
