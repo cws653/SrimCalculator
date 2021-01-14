@@ -13,6 +13,5 @@ Srim 계산 기능 이외에 재무제표 5~10년치 데이터를 한번에 볼 
 그 외 추가적인 기능이 있을 경우 README 파일에 명시하도록 하겠습니다.
 
 ## 컨벤션
-1. SrimCalculator 프로젝트는 아래 컨벤션을 준수하여 작성하도록 하겠습니다.
-
+1. SrimCalculator 프로젝트는 아래 컨벤션을 준수하여 작성하도록 하겠습니다.  
 https://github.com/StyleShare/swift-style-guide#%EC%BD%94%EB%93%9C-%EB%A0%88%EC%9D%B4%EC%95%84%EC%9B%83
