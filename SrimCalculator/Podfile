@@ -8,6 +8,7 @@ target 'SrimCalculator' do
   pod 'SwiftDataTables'
   pod 'SearchTextField'
   pod 'Charts'
+  pod 'Kanna', '~> 5.2.2'
   # Pods for SrimCalculator
 
 end

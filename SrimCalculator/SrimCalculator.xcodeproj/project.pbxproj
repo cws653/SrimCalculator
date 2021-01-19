@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		57A1B33C03B07BD202362799 /* Pods_SrimCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */; };
 		9D025ABB254992AE002B58D6 /* APIfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D025ABA254992AE002B58D6 /* APIfunction.swift */; };
+		9D12438E25B08E5E00758498 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D12438D25B08E5E00758498 /* CalculatorViewController.swift */; };
 		9D3A5128253947390011A06A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A5127253947390011A06A /* AppDelegate.swift */; };
 		9D3A512A253947390011A06A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A5129253947390011A06A /* SceneDelegate.swift */; };
 		9D3A512C253947390011A06A /* SearchCorpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A512B253947390011A06A /* SearchCorpVC.swift */; };
@@ -36,6 +37,7 @@
 		14EAB012F57349DEDDA8EC17 /* Pods-SrimCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.debug.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.debug.xcconfig"; sourceTree = "<group>"; };
 		6E977C116F5DA1DF4513BB0A /* Pods-SrimCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.release.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		9D025ABA254992AE002B58D6 /* APIfunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIfunction.swift; sourceTree = "<group>"; };
+		9D12438D25B08E5E00758498 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		9D3A5124253947390011A06A /* SrimCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SrimCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D3A5127253947390011A06A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D3A5129253947390011A06A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */,
 				9D874452256FF57A00F0AFC8 /* GraphViewController.swift */,
 				9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */,
+				9D12438D25B08E5E00758498 /* CalculatorViewController.swift */,
 				9D025ABA254992AE002B58D6 /* APIfunction.swift */,
 				9D7E48DF2543F08F0010B505 /* DataStruct.swift */,
 				9D3A512D253947390011A06A /* Main.storyboard */,
@@ -290,6 +293,7 @@
 				9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */,
 				9D874453256FF57A00F0AFC8 /* GraphViewController.swift in Sources */,
 				9D3A5128253947390011A06A /* AppDelegate.swift in Sources */,
+				9D12438E25B08E5E00758498 /* CalculatorViewController.swift in Sources */,
 				9D3A512A253947390011A06A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
