@@ -106,13 +106,12 @@
 		9D3A5126253947390011A06A /* SrimCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				9D6DB53E25B9A8FB006CC23D /* Calculator */,
+				9D6DB53D25B9A8F5006CC23D /* Table */,
+				9D6DB53C25B9A8E5006CC23D /* Chart */,
 				9D3A5127253947390011A06A /* AppDelegate.swift */,
 				9D3A5129253947390011A06A /* SceneDelegate.swift */,
 				9D3A512B253947390011A06A /* SearchCorpVC.swift */,
-				9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */,
-				9D874452256FF57A00F0AFC8 /* GraphViewController.swift */,
-				9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */,
-				9D12438D25B08E5E00758498 /* CalculatorViewController.swift */,
 				9D025ABA254992AE002B58D6 /* APIfunction.swift */,
 				9D7E48DF2543F08F0010B505 /* DataStruct.swift */,
 				9D3A512D253947390011A06A /* Main.storyboard */,
@@ -121,6 +120,31 @@
 				9D3A51352539473B0011A06A /* Info.plist */,
 			);
 			path = SrimCalculator;
+			sourceTree = "<group>";
+		};
+		9D6DB53C25B9A8E5006CC23D /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				9D874452256FF57A00F0AFC8 /* GraphViewController.swift */,
+				9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		9D6DB53D25B9A8F5006CC23D /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		9D6DB53E25B9A8FB006CC23D /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				9D12438D25B08E5E00758498 /* CalculatorViewController.swift */,
+			);
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 		9DB60162257B5A6C0097AA87 /* SrimCalculatorTests */ = {
