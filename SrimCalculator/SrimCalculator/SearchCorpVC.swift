@@ -51,7 +51,7 @@ class SearchCorpVC: UIViewController, UITextFieldDelegate {
             let jsonDecoder = JSONDecoder()
             let dataCorpStruct = try jsonDecoder.decode(CorpCodeStruct.self, from: dataAsset.data)
             
-            self.list = dataCorpStruct.result.list
+            self.list = dataCorpStruct.result.list.filter { $0.stockCode.first != " " }
             self.setSearchCoperationTextField(dataCorpStruct.result.list)
             
         } catch {
