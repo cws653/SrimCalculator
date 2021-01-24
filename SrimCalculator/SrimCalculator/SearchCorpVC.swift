@@ -89,6 +89,8 @@ class SearchCorpVC: UIViewController, UITextFieldDelegate {
                 financialStatementVC.corpCode = factor.corpCode.first
                 
                 self.navigationController?.pushViewController(tabBarController, animated: true)
+
+                return
             }
         }
         
