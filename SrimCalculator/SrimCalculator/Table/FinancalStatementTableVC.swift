@@ -153,37 +153,51 @@ class FinancalStatementTableVC: UIViewController {
         return result ?? .string("")
     }
     
+    private struct DataTableValues {
+        let account: DataTableValueType
+        let businessProfit: DataTableValueType
+        let netIncome: DataTableValueType
+        let EPS: DataTableValueType
+    }
+    
+    private func makeDataValues(_ financialData: [FinancialStatementsList]) -> DataTableValues {
+        
+        let defaultValue: DataTableValueType = .string("")
+        
+        var account: DataTableValueType = defaultValue
+        var businessProfit: DataTableValueType = defaultValue
+        var netIncome: DataTableValueType = defaultValue
+        var EPS: DataTableValueType = defaultValue
+        
+        for factor in financialData {
+            if account == defaultValue {
+                account = self.makeTableValue(factor, currentValueType: .account)
+            }
+            
+            if businessProfit == defaultValue {
+                businessProfit = self.makeTableValue(factor, currentValueType: .businessProfit)
+            }
+            
+            if netIncome == defaultValue {
+                netIncome = self.makeTableValue(factor, currentValueType: .netIncome)
+            }
+            
+            if EPS == defaultValue {
+                EPS = self.makeEPSTableValue(factor)
+            }
+        }
+        
+        return DataTableValues(account: account, businessProfit: businessProfit, netIncome: netIncome, EPS: EPS)
+    }
+    
     private func setupAPIData() {
         for year in 2015...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
-                let defaultValue: DataTableValueType = .string("")
-                
                 let year: DataTableValueType = .int(year)
-                var account: DataTableValueType = defaultValue
-                var businessProfit: DataTableValueType = defaultValue
-                var netIncome: DataTableValueType = defaultValue
-                var EPS: DataTableValueType = defaultValue
+                let tableDataValues = self.makeDataValues(financialData)
+                let temporaryData = [year, tableDataValues.account, tableDataValues.businessProfit, tableDataValues.netIncome, tableDataValues.EPS]
                 
-                for factor in financialData {
-                    if account == defaultValue {
-                        account = self.makeTableValue(factor, currentValueType: .account)
-                    }
-                    
-                    if businessProfit == defaultValue {
-                        businessProfit = self.makeTableValue(factor, currentValueType: .businessProfit)
-                    }
-                    
-                    if netIncome == defaultValue {
-                        netIncome = self.makeTableValue(factor, currentValueType: .netIncome)
-                    }
-                    
-                    if EPS == defaultValue {
-                        EPS = self.makeEPSTableValue(factor)
-                    }
-                }
-                
-                let temporaryData = [year, account, businessProfit, netIncome, EPS]
                 self.willUseAccountData.append(temporaryData.map { $0.toDouble ?? Self.defaultDoubleValue})
                 self.updateDataSourece(temporaryData)
             }
