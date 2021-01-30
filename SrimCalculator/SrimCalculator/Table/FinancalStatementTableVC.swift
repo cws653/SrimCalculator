@@ -122,6 +122,42 @@ class FinancalStatementTableVC: UIViewController {
         }
     }
     
+    private func makeAccount(_ factor: FinancialStatementsList) -> DataTableValueType {
+        var result: DataTableValueType?
+        
+        if factor.sjNm.contains(Keyword.incomeStatement.title) {
+            result = self.setDataValue(factor, dataType: .account)
+        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
+            result = self.setDataValue(factor, dataType: .account)
+        }
+        
+        return result ?? .string("")
+    }
+    
+    private func makeBusinessProfit(_ factor: FinancialStatementsList) -> DataTableValueType {
+        var result: DataTableValueType?
+        
+        if factor.sjNm.contains(Keyword.incomeStatement.title) {
+            result = self.setDataValue(factor, dataType: .businessProfit)
+        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
+            result = self.setDataValue(factor, dataType: .businessProfit)
+        }
+        
+        return result ?? .string("")
+    }
+    
+    private func makeNetIncome(_ factor: FinancialStatementsList) -> DataTableValueType {
+        var result: DataTableValueType?
+        
+        if factor.sjNm.contains(Keyword.incomeStatement.title) {
+            result = self.setDataValue(factor, dataType: .netIncome)
+        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
+            result = self.setDataValue(factor, dataType: .netIncome)
+        }
+        
+        return result ?? .string("")
+    }
+    
     private func setupAPIData() {
         
         let defaultValue: DataTableValueType = .string("")
@@ -137,27 +173,15 @@ class FinancalStatementTableVC: UIViewController {
                 
                 for factor in financialData {
                     if account == .string("") {
-                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
-                            account = self.setDataValue(factor, dataType: .account) ?? defaultValue
-                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-                            account = self.setDataValue(factor, dataType: .account) ?? defaultValue
-                        }
+                        account = self.makeAccount(factor)
                     }
                     
                     if businessProfit == .string("") {
-                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
-                            businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
-                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-                            businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
-                        }
+                        businessProfit = self.makeBusinessProfit(factor)
                     }
                     
                     if netIncome == .string("") {
-                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
-                            netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
-                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-                            netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
-                        }
+                        netIncome = self.makeNetIncome(factor)
                     }
                     
                     if EPS == .string("") {
