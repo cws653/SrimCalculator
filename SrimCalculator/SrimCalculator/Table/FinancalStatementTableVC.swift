@@ -155,7 +155,6 @@ class FinancalStatementTableVC: UIViewController {
                         } else if factor.sjNm.contains("포괄손익계산서") {
                             if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
                                 let factorData = factor.thstrmAmount
-                                //                                let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                                 EPS = DataTableValueType.string(factorData)
                             }
                         }
