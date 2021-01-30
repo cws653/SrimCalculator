@@ -43,15 +43,6 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    private func DataForMakingROE(year: Int) -> DataForROE {
-
-        callFinancialData(year: year) { [weak self] financialStatementList in
-            
-        }
-        
-        return DataForROE
-    }
-    
     private func callFinancialData(year: Int, completion:@escaping ([FinancialStatementsList]) -> Void) {
         //        let mycrtfcKey: String = "28223d93326101b760b633b7ab5469df600a465f"
         //            var baseURL: String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json"
