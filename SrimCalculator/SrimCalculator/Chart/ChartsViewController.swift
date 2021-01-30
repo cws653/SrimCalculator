@@ -11,9 +11,9 @@ import Charts
 
 class ChartsViewController: UIViewController {
     
-    @IBOutlet weak var lineGraphView: LineChartView!
     var useForMakingCharts: [[Double]] = []
     
+    @IBOutlet weak var lineGraphView: LineChartView!
     @IBAction func clickAccountButton(_ sender: UIButton) {
         tableData = []
         setChartDefault(inputDataType: .account)
@@ -36,27 +36,7 @@ class ChartsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //        let months: [String] = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        //        let unitsSold: [Double] = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
-        
-        
-        //        for i in 0..<dataPoint.count {
-        //            let dataEntry = ChartDataEntry(x: Double(i), y: Double(dataArray[i]))
-        //            dataEntries.append(dataEntry)
-        //        }
-        //
-        //        let line1 = LineChartDataSet(entries: dataEntries, label: "Numbers")
-        //        line1.colors = [NSUIColor.blue]
-        //
-        //        let data = LineChartData()
-        //        data.addDataSet(line1)
-        ////        let chartDataSet = ChartDataSet(entries: dataEntries, label: "Numbers")
-        ////        let chartData = ChartData(dataSet: chartDataSet)
-        //
-        //        lineGraphView.data = data
     }
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -95,14 +75,6 @@ class ChartsViewController: UIViewController {
     }
     
     private func setChartDefault(inputDataType: inputDataType) {
-        //        var months: [Double] = []
-        //        for index in 0..<takingdataOftable.count {
-        //            months.append(takingdataOftable[index][0])
-        //        }
-        //        var unitsSold: [Double] = []
-        //        for index in 0..<takingdataOftable.count {
-        //         a   unitsSold.append(takingdataOftable[index][1])
-        //        }
         switch inputDataType {
         case .account:
             for index in 0..<useForMakingCharts.count {

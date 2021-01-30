@@ -2,25 +2,29 @@ PODS:
   - Charts (3.6.0):
     - Charts/Core (= 3.6.0)
   - Charts/Core (3.6.0)
+  - Kanna (5.2.4)
   - SearchTextField (1.2.4)
   - SwiftDataTables (0.8.1)
 
 DEPENDENCIES:
   - Charts
+  - Kanna (~> 5.2.2)
   - SearchTextField
   - SwiftDataTables
 
 SPEC REPOS:
   trunk:
     - Charts
+    - Kanna
     - SearchTextField
     - SwiftDataTables
 
 SPEC CHECKSUMS:
   Charts: b1e3a1f5a1c9ba5394438ca3b91bd8c9076310af
+  Kanna: b9d00d7c11428308c7f95e1f1f84b8205f567a8f
   SearchTextField: 40dc3cc57def5a211f263cac263622c163bbc25a
   SwiftDataTables: 9e5f2ad7e7430c8008a31e66a0237ed29bf6fca8
 
-PODFILE CHECKSUM: 081001334337d3b0531de54e3dea28c162274593
+PODFILE CHECKSUM: a947e0b411fee14c56ff0051ae3d0330b14d5ea8
 
 COCOAPODS: 1.10.0

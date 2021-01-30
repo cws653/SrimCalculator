@@ -26,11 +26,8 @@ class FinancalStatementTableVC: UIViewController {
     
     var dataDelivariedToGraph:[CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
     
-    var accountDataDelivariedToGraph: [[CGFloat]] = []
-    var accountDataDelivariedToChart: [[Double]] = []
-//    var businessProfitDataDelivariedToChart: [[Double]] = []
-//    var netIncomeDataDelivariedTodChart: [[Double]] = []
-//    var EPSIncomeDataDelivariedToChart: [[Double]] = []
+//    var accountDataDelivariedToGraph: [[CGFloat]] = []
+    var willUseAccountData: [[Double]] = []
     
     //    case account
     //    case businessProfit
@@ -53,7 +50,7 @@ class FinancalStatementTableVC: UIViewController {
 //            graphViewController.takingdataOftable = accountDataDelivariedToGraph
 //        }
         if let chartViewController = self.tabBarController?.viewControllers?[2] as? ChartsViewController {
-            chartViewController.useForMakingCharts = accountDataDelivariedToChart
+            chartViewController.useForMakingCharts = willUseAccountData
         }
     }
     
@@ -123,6 +120,8 @@ class FinancalStatementTableVC: UIViewController {
                 var businessProfit: DataTableValueType = .string("")
                 var netIncome: DataTableValueType = .string("")
                 var EPS: DataTableValueType = .string("")
+                var TotalEquity: DataTableValueType = .string("")
+                
                 
                 for factor in financialData {
                     
@@ -165,10 +164,10 @@ class FinancalStatementTableVC: UIViewController {
                         }
                     }
                 }
-                let temp = [year, account, businessProfit, netIncome, EPS]
-                self.accountDataDelivariedToGraph.append(temp.map { $0.toCGFloat ?? Self.defaultCGFloatValue })
-                self.accountDataDelivariedToChart.append(temp.map { $0.toDouble ?? Self.defaultDoubleValue})
-                self.updateDataSourece(temp)
+                let temporaryData = [year, account, businessProfit, netIncome, EPS]
+//                self.accountDataDelivariedToGraph.append(temp.map { $0.toCGFloat ?? Self.defaultCGFloatValue })
+                self.willUseAccountData.append(temporaryData.map { $0.toDouble ?? Self.defaultDoubleValue})
+                self.updateDataSourece(temporaryData)
             }
         }
     }

@@ -84,10 +84,10 @@ class SearchCorpVC: UIViewController, UITextFieldDelegate {
                 guard let financialStatementVC = tabBarController.viewControllers?[0] as? FinancalStatementTableVC  else {
                     return
                 }
-                
+
                 financialStatementVC.corpName = factor.corpName.first
                 financialStatementVC.corpCode = factor.corpCode.first
-                
+
                 self.navigationController?.pushViewController(tabBarController, animated: true)
             }
         }
