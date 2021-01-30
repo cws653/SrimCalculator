@@ -12,7 +12,6 @@ import Kanna
 class CalculatorViewController: UIViewController {
     
     var corporateBondRate: Double?
-    var corpCode: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,45 +43,47 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    private func DataForMakingROE() -> [DataForROE] {
-        for year in 2010...2019 {
+    private func DataForMakingROE(year: Int) -> DataForROE {
+
+        callFinancialData(year: year) { [weak self] financialStatementList in
             
         }
+        
+        return DataForROE
     }
     
     private func callFinancialData(year: Int, completion:@escaping ([FinancialStatementsList]) -> Void) {
-        let mycrtfcKey: String = "28223d93326101b760b633b7ab5469df600a465f"
-        func APIfunctionForFinancialStatements(year: Int, completion:@escaping ([FinancialStatementsList]) -> Void) {
-//            var baseURL: String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json"
-
-            let anothertestURL :String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json?crtfc_key=28223d93326101b760b633b7ab5469df600a465f&corp_code=00126380&bsns_year=2019&reprt_code=11011&fs_div=OFS"
-
-//            let MakedURL = baseURL + "?crtfc_key=\(mycrtfcKey)" + "&corp_code=\(corpCode)" + "&bsns_year=\(year)" + "&reprt_code=11011" + "&fs_div=OFS"
-//            if anothertestURL == MakedURL {
-//                print("url 값은 같습니다.")
-//            } else {
-//                print("url 값은 다릅니다.")
-//            }
-
-            guard let url = URL(string: anothertestURL) else {return}
-            let session: URLSession = URLSession(configuration: .default)
-            let dataTask: URLSessionDataTask = session.dataTask(with: url) {(datas, response, error) in
-                if error != nil {
-                    print("Network Error")
-                }
-                guard let data = datas else {return}
-
-                do {
-                    let search = try JSONDecoder().decode(SearchFinancialStatementsResult.self, from: data)
-                    completion(search.list)
-                } catch {
-                    print("JSON Parising Error")
-                }
+        //        let mycrtfcKey: String = "28223d93326101b760b633b7ab5469df600a465f"
+        //            var baseURL: String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json"
+        
+        let anothertestURL :String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json?crtfc_key=28223d93326101b760b633b7ab5469df600a465f&corp_code=00126380&bsns_year=2019&reprt_code=11011&fs_div=OFS"
+        
+        //            let MakedURL = baseURL + "?crtfc_key=\(mycrtfcKey)" + "&corp_code=\(corpCode)" + "&bsns_year=\(year)" + "&reprt_code=11011" + "&fs_div=OFS"
+        //            if anothertestURL == MakedURL {
+        //                print("url 값은 같습니다.")
+        //            } else {
+        //                print("url 값은 다릅니다.")
+        //            }
+        
+        guard let url = URL(string: anothertestURL) else {return}
+        let session: URLSession = URLSession(configuration: .default)
+        let dataTask: URLSessionDataTask = session.dataTask(with: url) {(datas, response, error) in
+            if error != nil {
+                print("Network Error")
             }
-            dataTask.resume()
+            guard let data = datas else {return}
+            
+            do {
+                let search = try JSONDecoder().decode(SearchFinancialStatementsResult.self, from: data)
+                completion(search.list)
+            } catch {
+                print("JSON Parising Error")
+            }
         }
+        dataTask.resume()
     }
 }
+
 
 struct DataForROE {
     let  OwnerNetIncome: String
