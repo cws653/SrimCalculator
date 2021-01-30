@@ -108,6 +108,20 @@ class FinancalStatementTableVC: UIViewController {
         return nil
     }
     
+    private enum Keyword {
+        case incomeStatement
+        case comprehensiveIncomeStatement
+        
+        var title: String {
+            switch self {
+            case .incomeStatement:
+                return "손익계산서"
+            case .comprehensiveIncomeStatement:
+                return "포괄손익계산서"
+            }
+        }
+    }
+    
     private func setupAPIData() {
         
         let defaultValue: DataTableValueType = .string("")
@@ -123,36 +137,36 @@ class FinancalStatementTableVC: UIViewController {
                 
                 for factor in financialData {
                     if account == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
+                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
                             account = self.setDataValue(factor, dataType: .account) ?? defaultValue
-                        } else if factor.sjNm.contains("포괄손익계산서") {
+                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
                             account = self.setDataValue(factor, dataType: .account) ?? defaultValue
                         }
                     }
                     
                     if businessProfit == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
+                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
                             businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
-                        } else if factor.sjNm.contains("포괄손익계산서") {
+                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
                             businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
                         }
                     }
                     
                     if netIncome == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
+                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
                             netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
-                        } else if factor.sjNm.contains("포괄손익계산서") {
+                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
                             netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
                         }
                     }
                     
                     if EPS == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
+                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
                             if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
                                 let factorData = factor.thstrmAmount
                                 EPS = DataTableValueType.string(factorData)
                             }
-                        } else if factor.sjNm.contains("포괄손익계산서") {
+                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
                             if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
                                 let factorData = factor.thstrmAmount
                                 EPS = DataTableValueType.string(factorData)
