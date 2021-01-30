@@ -112,7 +112,7 @@ class FinancalStatementTableVC: UIViewController {
         
         let defaultValue: DataTableValueType = .string("")
         
-        for year in 2010...2019 {
+        for year in 2015...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
                 var year: DataTableValueType = .int(year)
