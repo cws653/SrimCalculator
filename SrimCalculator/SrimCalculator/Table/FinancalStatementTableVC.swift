@@ -135,41 +135,51 @@ class FinancalStatementTableVC: UIViewController {
         return result ?? .string("")
     }
     
+    private func makeEPSTableValue(_ factor: FinancialStatementsList) -> DataTableValueType {
+        var result: DataTableValueType?
+        
+        if factor.sjNm.contains(Keyword.incomeStatement.title) {
+            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
+                let factorData = factor.thstrmAmount
+                result = DataTableValueType.string(factorData)
+            }
+        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
+            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
+                let factorData = factor.thstrmAmount
+                result = DataTableValueType.string(factorData)
+            }
+        }
+        
+        return result ?? .string("")
+    }
+    
     private func setupAPIData() {
         for year in 2015...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
+                let defaultValue: DataTableValueType = .string("")
+                
                 let year: DataTableValueType = .int(year)
-                var account: DataTableValueType = .string("")
-                var businessProfit: DataTableValueType = .string("")
-                var netIncome: DataTableValueType = .string("")
-                var EPS: DataTableValueType = .string("")
+                var account: DataTableValueType = defaultValue
+                var businessProfit: DataTableValueType = defaultValue
+                var netIncome: DataTableValueType = defaultValue
+                var EPS: DataTableValueType = defaultValue
                 
                 for factor in financialData {
-                    if account == .string("") {
+                    if account == defaultValue {
                         account = self.makeTableValue(factor, currentValueType: .account)
                     }
                     
-                    if businessProfit == .string("") {
+                    if businessProfit == defaultValue {
                         businessProfit = self.makeTableValue(factor, currentValueType: .businessProfit)
                     }
                     
-                    if netIncome == .string("") {
+                    if netIncome == defaultValue {
                         netIncome = self.makeTableValue(factor, currentValueType: .netIncome)
                     }
                     
-                    if EPS == .string("") {
-                        if factor.sjNm.contains(Keyword.incomeStatement.title) {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
-                                let factorData = factor.thstrmAmount
-                                EPS = DataTableValueType.string(factorData)
-                            }
-                        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
-                                let factorData = factor.thstrmAmount
-                                EPS = DataTableValueType.string(factorData)
-                            }
-                        }
+                    if EPS == defaultValue {
+                        EPS = self.makeEPSTableValue(factor)
                     }
                 }
                 
