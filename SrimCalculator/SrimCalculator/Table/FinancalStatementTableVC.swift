@@ -115,16 +115,13 @@ class FinancalStatementTableVC: UIViewController {
         for year in 2015...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
-                var year: DataTableValueType = .int(year)
+                let year: DataTableValueType = .int(year)
                 var account: DataTableValueType = .string("")
                 var businessProfit: DataTableValueType = .string("")
                 var netIncome: DataTableValueType = .string("")
                 var EPS: DataTableValueType = .string("")
-                var TotalEquity: DataTableValueType = .string("")
-                
                 
                 for factor in financialData {
-                    
                     if account == .string("") {
                         if factor.sjNm.contains("손익계산서") {
                             account = self.setDataValue(factor, dataType: .account) ?? defaultValue
@@ -164,8 +161,8 @@ class FinancalStatementTableVC: UIViewController {
                         }
                     }
                 }
+                
                 let temporaryData = [year, account, businessProfit, netIncome, EPS]
-//                self.accountDataDelivariedToGraph.append(temp.map { $0.toCGFloat ?? Self.defaultCGFloatValue })
                 self.willUseAccountData.append(temporaryData.map { $0.toDouble ?? Self.defaultDoubleValue})
                 self.updateDataSourece(temporaryData)
             }
