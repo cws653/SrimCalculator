@@ -122,46 +122,20 @@ class FinancalStatementTableVC: UIViewController {
         }
     }
     
-    private func makeAccount(_ factor: FinancialStatementsList) -> DataTableValueType {
+    private func makeTableValue(_ factor: FinancialStatementsList, currentValueType: DataValueType) -> DataTableValueType {
+        
         var result: DataTableValueType?
         
         if factor.sjNm.contains(Keyword.incomeStatement.title) {
-            result = self.setDataValue(factor, dataType: .account)
+            result = self.setDataValue(factor, dataType: currentValueType)
         } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-            result = self.setDataValue(factor, dataType: .account)
-        }
-        
-        return result ?? .string("")
-    }
-    
-    private func makeBusinessProfit(_ factor: FinancialStatementsList) -> DataTableValueType {
-        var result: DataTableValueType?
-        
-        if factor.sjNm.contains(Keyword.incomeStatement.title) {
-            result = self.setDataValue(factor, dataType: .businessProfit)
-        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-            result = self.setDataValue(factor, dataType: .businessProfit)
-        }
-        
-        return result ?? .string("")
-    }
-    
-    private func makeNetIncome(_ factor: FinancialStatementsList) -> DataTableValueType {
-        var result: DataTableValueType?
-        
-        if factor.sjNm.contains(Keyword.incomeStatement.title) {
-            result = self.setDataValue(factor, dataType: .netIncome)
-        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
-            result = self.setDataValue(factor, dataType: .netIncome)
+            result = self.setDataValue(factor, dataType: currentValueType)
         }
         
         return result ?? .string("")
     }
     
     private func setupAPIData() {
-        
-        let defaultValue: DataTableValueType = .string("")
-        
         for year in 2015...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
@@ -173,15 +147,15 @@ class FinancalStatementTableVC: UIViewController {
                 
                 for factor in financialData {
                     if account == .string("") {
-                        account = self.makeAccount(factor)
+                        account = self.makeTableValue(factor, currentValueType: .account)
                     }
                     
                     if businessProfit == .string("") {
-                        businessProfit = self.makeBusinessProfit(factor)
+                        businessProfit = self.makeTableValue(factor, currentValueType: .businessProfit)
                     }
                     
                     if netIncome == .string("") {
-                        netIncome = self.makeNetIncome(factor)
+                        netIncome = self.makeTableValue(factor, currentValueType: .netIncome)
                     }
                     
                     if EPS == .string("") {
