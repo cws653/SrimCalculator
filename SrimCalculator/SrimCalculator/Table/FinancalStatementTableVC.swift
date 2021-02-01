@@ -108,64 +108,96 @@ class FinancalStatementTableVC: UIViewController {
         return nil
     }
     
-    private func setupAPIData() {
+    private enum Keyword {
+        case incomeStatement
+        case comprehensiveIncomeStatement
+        
+        var title: String {
+            switch self {
+            case .incomeStatement:
+                return "손익계산서"
+            case .comprehensiveIncomeStatement:
+                return "포괄손익계산서"
+            }
+        }
+    }
+    
+    private func makeTableValue(_ factor: FinancialStatementsList, currentValueType: DataValueType) -> DataTableValueType {
+        
+        var result: DataTableValueType?
+        
+        if factor.sjNm.contains(Keyword.incomeStatement.title) {
+            result = self.setDataValue(factor, dataType: currentValueType)
+        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
+            result = self.setDataValue(factor, dataType: currentValueType)
+        }
+        
+        return result ?? .string("")
+    }
+    
+    private func makeEPSTableValue(_ factor: FinancialStatementsList) -> DataTableValueType {
+        var result: DataTableValueType?
+        
+        if factor.sjNm.contains(Keyword.incomeStatement.title) {
+            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
+                let factorData = factor.thstrmAmount
+                result = DataTableValueType.string(factorData)
+            }
+        } else if factor.sjNm.contains(Keyword.comprehensiveIncomeStatement.title) {
+            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
+                let factorData = factor.thstrmAmount
+                result = DataTableValueType.string(factorData)
+            }
+        }
+        
+        return result ?? .string("")
+    }
+    
+    private struct DataTableValues {
+        let account: DataTableValueType
+        let businessProfit: DataTableValueType
+        let netIncome: DataTableValueType
+        let EPS: DataTableValueType
+    }
+    
+    private func makeDataValues(_ financialData: [FinancialStatementsList]) -> DataTableValues {
         
         let defaultValue: DataTableValueType = .string("")
         
-        for year in 2010...2019 {
+        var account: DataTableValueType = defaultValue
+        var businessProfit: DataTableValueType = defaultValue
+        var netIncome: DataTableValueType = defaultValue
+        var EPS: DataTableValueType = defaultValue
+        
+        for factor in financialData {
+            if account == defaultValue {
+                account = self.makeTableValue(factor, currentValueType: .account)
+            }
+            
+            if businessProfit == defaultValue {
+                businessProfit = self.makeTableValue(factor, currentValueType: .businessProfit)
+            }
+            
+            if netIncome == defaultValue {
+                netIncome = self.makeTableValue(factor, currentValueType: .netIncome)
+            }
+            
+            if EPS == defaultValue {
+                EPS = self.makeEPSTableValue(factor)
+            }
+        }
+        
+        return DataTableValues(account: account, businessProfit: businessProfit, netIncome: netIncome, EPS: EPS)
+    }
+    
+    private func setupAPIData() {
+        for year in 2015...2019 {
             APIInstanceClass.APIfunctionForFinancialStatements(corpCode: self.corpCode ?? "", year: year) { financialData in
                 
-                var year: DataTableValueType = .int(year)
-                var account: DataTableValueType = .string("")
-                var businessProfit: DataTableValueType = .string("")
-                var netIncome: DataTableValueType = .string("")
-                var EPS: DataTableValueType = .string("")
-                var TotalEquity: DataTableValueType = .string("")
+                let year: DataTableValueType = .int(year)
+                let tableDataValues = self.makeDataValues(financialData)
+                let temporaryData = [year, tableDataValues.account, tableDataValues.businessProfit, tableDataValues.netIncome, tableDataValues.EPS]
                 
-                
-                for factor in financialData {
-                    
-                    if account == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
-                            account = self.setDataValue(factor, dataType: .account) ?? defaultValue
-                        } else if factor.sjNm.contains("포괄손익계산서") {
-                            account = self.setDataValue(factor, dataType: .account) ?? defaultValue
-                        }
-                    }
-                    
-                    if businessProfit == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
-                            businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
-                        } else if factor.sjNm.contains("포괄손익계산서") {
-                            businessProfit = self.setDataValue(factor, dataType: .businessProfit) ?? defaultValue
-                        }
-                    }
-                    
-                    if netIncome == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
-                            netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
-                        } else if factor.sjNm.contains("포괄손익계산서") {
-                            netIncome = self.setDataValue(factor, dataType: .netIncome) ?? defaultValue
-                        }
-                    }
-                    
-                    if EPS == .string("") {
-                        if factor.sjNm.contains("손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
-                                let factorData = factor.thstrmAmount
-                                EPS = DataTableValueType.string(factorData)
-                            }
-                        } else if factor.sjNm.contains("포괄손익계산서") {
-                            if self.findKeyWord(structFinancalStatement: factor, list: self.EPSWords) {
-                                let factorData = factor.thstrmAmount
-                                //                                let factorData = self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
-                                EPS = DataTableValueType.string(factorData)
-                            }
-                        }
-                    }
-                }
-                let temporaryData = [year, account, businessProfit, netIncome, EPS]
-//                self.accountDataDelivariedToGraph.append(temp.map { $0.toCGFloat ?? Self.defaultCGFloatValue })
                 self.willUseAccountData.append(temporaryData.map { $0.toDouble ?? Self.defaultDoubleValue})
                 self.updateDataSourece(temporaryData)
             }
