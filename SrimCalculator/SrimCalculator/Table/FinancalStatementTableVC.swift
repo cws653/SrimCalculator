@@ -104,7 +104,6 @@ class FinancalStatementTableVC: UIViewController {
                 print("단위가 억단위가 아닙니다.")
             }
         }
-        
         return nil
     }
     
