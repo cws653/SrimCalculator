@@ -12,10 +12,10 @@ import Kanna
 class CalculatorViewController: UIViewController {
     
     // 지배기업 소유주지분
-    let OwnerNetIncome: [String] = ["지배기업 소유주지분"]
+    let ownerNetIncome: [String] = ["지배기업 소유주지분"]
     // 당기순이익: 지배기업의 소유주에게 귀속되는 당기순이익(손실)
-    let OwnershipInterest: [String] = ["지배기업의 소유주에게 귀속되는 당기순이익(손실)"]
-    
+    let ownershipInterest: [String] = ["지배기업의 소유주에게 귀속되는 당기순이익(손실)"]
+    // 회사채 BBB-등급 이자율
     var corporateBondRate: Double?
     
     override func viewDidLoad() {
@@ -24,8 +24,17 @@ class CalculatorViewController: UIViewController {
             self?.corporateBondRate = corporateBondRate
         }
         
-        self.DataForMakingROE(year: 2019) { data in
-            print(data.OwnerNetIncome, data.OwnershipInterest)
+        self.makeROE(year: 2019) { data in
+            var averageOwnerNetIncome: Int {
+                let beforeOwnerNetIncome = Int(data.beforeOwnerNetIncome) ?? 1
+                let afterOwnerNetIncome = Int(data.afterOwnerNetIncome) ?? 1
+                let averageOwnerNetIncome = (beforeOwnerNetIncome + afterOwnerNetIncome) / 2
+                return averageOwnerNetIncome
+            }
+            
+            let ownershipInterest = Int(data.ownershipInterest) ?? 1
+            let roe = averageOwnerNetIncome / ownershipInterest
+            print(roe)
         }
     }
     
@@ -52,66 +61,101 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    private func makeROE(roeData: DataForROE, year: Int) -> Double {
+    enum KeyWords {
+        case financialStatement
+        case incomeStatement
         
-        return 0
+        var title: String {
+            switch self {
+            case .financialStatement:
+                return "재무상태표"
+            case .incomeStatement:
+                return "손익계산서"
+            }
+        }
     }
     
+    private func makeAfterOwnerNetIncome(_ factor: FinancialStatementsList) -> String? {
+        
+        let afterOwnerNetIncome: String?
+        
+        if factor.sjNm.contains(KeyWords.financialStatement.title) {
+            if !factor.thstrmNm.isEmpty {
+                if self.findKeyWord(structFinancalStatement: factor, list: self.ownerNetIncome) {
+                    let factorData = factor.thstrmAmount
+                    afterOwnerNetIncome = factorData
+                    return afterOwnerNetIncome ?? ""
+                }
+            }
+        }
+        return nil
+    }
     
+    private func makeBeforeOwnerNetIncome(_ factor: FinancialStatementsList) -> String? {
+        
+        let beforeOwnerNetIncome: String?
+        
+        if factor.sjNm.contains(KeyWords.financialStatement.title) {
+            if !factor.frmtrmNm.isEmpty {
+                if self.findKeyWord(structFinancalStatement: factor, list: self.ownerNetIncome) {
+                    let factorData = factor.frmtrmAmount
+                    beforeOwnerNetIncome = factorData
+                    return beforeOwnerNetIncome ?? ""
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func makeOwnershipInterest(_ factor: FinancialStatementsList) -> String? {
+        
+        let ownerInterest: String?
+        
+        if factor.sjNm.contains(KeyWords.incomeStatement.title) {
+            if !factor.thstrmNm.isEmpty {
+                if self.findKeyWord(structFinancalStatement: factor, list: self.ownershipInterest) {
+                    let factorData = factor.thstrmAmount
+                    ownerInterest = factorData
+                    return ownerInterest ?? ""
+                }
+            }
+        }
+        return nil
+    }
     
     private func findKeyWord(structFinancalStatement:FinancialStatementsList, list:[String]) -> Bool {
         
         for index in 0..<list.count {
             if structFinancalStatement.accountNm == list[index] {
-                //                structFinancalStatement.accountNm.contains(list[word])
-                print(list[index])
                 return true
             }
         }
         return false
     }
     
-    private func DataForMakingROE(year: Int, completion:@escaping (DataForROE) -> Void) {
+    private func makeROE(year: Int, completion:@escaping (DataForROE) -> Void) {
         
-        var ownerNetIncome: String?
+        var beforeOwnerNetIncome: String?
+        var afterOwnerNetIncome: String?
         var ownershipInterest: String?
         
         callFinancialData(year: year) { [weak self] financialStatementList in
             guard let self = self else {
-                print("끝나버림")
                 return
             }
             
             for factor in financialStatementList {
-                if ownerNetIncome == nil {
-                    if factor.sjNm.contains("재무상태표") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.OwnerNetIncome) {
-                            let factorData = factor.thstrmAmount
-                            ownerNetIncome = factorData
-                        }
-                    } else if factor.sjNm.contains("포괄손익계산서") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.OwnerNetIncome) {
-                            let factorData = factor.thstrmAmount
-                            ownerNetIncome = factorData
-                        }
-                    }
+                if afterOwnerNetIncome == nil {
+                    afterOwnerNetIncome = self.makeAfterOwnerNetIncome(factor)
                 }
-                
+                if beforeOwnerNetIncome == nil {
+                    beforeOwnerNetIncome = self.makeBeforeOwnerNetIncome(factor)
+                }
                 if ownershipInterest == nil {
-                    if factor.sjNm.contains("손익계산서") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.OwnershipInterest) {
-                            let factorData = factor.thstrmAmount
-                            ownershipInterest = factorData
-                        }
-                    } else if factor.sjNm.contains("연결 포괄손익계산서") {
-                        if self.findKeyWord(structFinancalStatement: factor, list: self.OwnershipInterest) {
-                            let factorData = factor.thstrmAmount
-                            ownershipInterest = factorData
-                        }
-                    }
+                    ownershipInterest = self.makeOwnershipInterest(factor)
                 }
             }
-            completion(DataForROE(OwnerNetIncome: ownerNetIncome ?? "", OwnershipInterest: ownershipInterest ?? ""))
+            completion(DataForROE(beforeOwnerNetIncome: beforeOwnerNetIncome ?? "", afterOwnerNetIncome: afterOwnerNetIncome ?? "", ownershipInterest: ownershipInterest ?? ""))
         }
     }
     
@@ -135,7 +179,6 @@ class CalculatorViewController: UIViewController {
                 print("Network Error")
             }
             guard let data = datas else {
-                print("data가 없음")
                 return
             }
             
@@ -152,8 +195,9 @@ class CalculatorViewController: UIViewController {
 
 
 struct DataForROE {
-    let  OwnerNetIncome: String
-    let OwnershipInterest: String
+    let beforeOwnerNetIncome: String
+    let afterOwnerNetIncome: String
+    let ownershipInterest: String
 }
 
 
