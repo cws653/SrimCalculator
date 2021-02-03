@@ -11,12 +11,30 @@ import Kanna
 
 class CalculatorViewController: UIViewController {
     
+    // 지배기업 소유주지분
+    let ownerNetIncome: [String] = ["지배기업 소유주지분"]
+    // 당기순이익: 지배기업의 소유주에게 귀속되는 당기순이익(손실)
+    let ownershipInterest: [String] = ["지배기업의 소유주에게 귀속되는 당기순이익(손실)"]
+    // 회사채 BBB-등급 이자율
     var corporateBondRate: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         callCorporateBondRate() { [weak self] corporateBondRate in
             self?.corporateBondRate = corporateBondRate
+        }
+        
+        self.makeROE(year: 2019) { data in
+            var averageOwnerNetIncome: Int {
+                let beforeOwnerNetIncome = Int(data.beforeOwnerNetIncome) ?? 1
+                let afterOwnerNetIncome = Int(data.afterOwnerNetIncome) ?? 1
+                let averageOwnerNetIncome = (beforeOwnerNetIncome + afterOwnerNetIncome) / 2
+                return averageOwnerNetIncome
+            }
+            
+            let ownershipInterest = Int(data.ownershipInterest) ?? 1
+            let roe = averageOwnerNetIncome / ownershipInterest
+            print(roe)
         }
     }
     
@@ -43,11 +61,109 @@ class CalculatorViewController: UIViewController {
         }
     }
     
+    enum KeyWords {
+        case financialStatement
+        case incomeStatement
+        
+        var title: String {
+            switch self {
+            case .financialStatement:
+                return "재무상태표"
+            case .incomeStatement:
+                return "손익계산서"
+            }
+        }
+    }
+    
+    private func makeAfterOwnerNetIncome(_ factor: FinancialStatementsList) -> String? {
+        
+        let afterOwnerNetIncome: String?
+        
+        if factor.sjNm.contains(KeyWords.financialStatement.title) {
+            if !factor.thstrmNm.isEmpty {
+                if self.findKeyWord(structFinancalStatement: factor, list: self.ownerNetIncome) {
+                    let factorData = factor.thstrmAmount
+                    afterOwnerNetIncome = factorData
+                    return afterOwnerNetIncome ?? ""
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func makeBeforeOwnerNetIncome(_ factor: FinancialStatementsList) -> String? {
+        
+        let beforeOwnerNetIncome: String?
+        
+        if factor.sjNm.contains(KeyWords.financialStatement.title) {
+            if !factor.frmtrmNm.isEmpty {
+                if self.findKeyWord(structFinancalStatement: factor, list: self.ownerNetIncome) {
+                    let factorData = factor.frmtrmAmount
+                    beforeOwnerNetIncome = factorData
+                    return beforeOwnerNetIncome ?? ""
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func makeOwnershipInterest(_ factor: FinancialStatementsList) -> String? {
+        
+        let ownerInterest: String?
+        
+        if factor.sjNm.contains(KeyWords.incomeStatement.title) {
+            if !factor.thstrmNm.isEmpty {
+                if self.findKeyWord(structFinancalStatement: factor, list: self.ownershipInterest) {
+                    let factorData = factor.thstrmAmount
+                    ownerInterest = factorData
+                    return ownerInterest ?? ""
+                }
+            }
+        }
+        return nil
+    }
+    
+    private func findKeyWord(structFinancalStatement:FinancialStatementsList, list:[String]) -> Bool {
+        
+        for index in 0..<list.count {
+            if structFinancalStatement.accountNm == list[index] {
+                return true
+            }
+        }
+        return false
+    }
+    
+    private func makeROE(year: Int, completion:@escaping (DataForROE) -> Void) {
+        
+        var beforeOwnerNetIncome: String?
+        var afterOwnerNetIncome: String?
+        var ownershipInterest: String?
+        
+        callFinancialData(year: year) { [weak self] financialStatementList in
+            guard let self = self else {
+                return
+            }
+            
+            for factor in financialStatementList {
+                if afterOwnerNetIncome == nil {
+                    afterOwnerNetIncome = self.makeAfterOwnerNetIncome(factor)
+                }
+                if beforeOwnerNetIncome == nil {
+                    beforeOwnerNetIncome = self.makeBeforeOwnerNetIncome(factor)
+                }
+                if ownershipInterest == nil {
+                    ownershipInterest = self.makeOwnershipInterest(factor)
+                }
+            }
+            completion(DataForROE(beforeOwnerNetIncome: beforeOwnerNetIncome ?? "", afterOwnerNetIncome: afterOwnerNetIncome ?? "", ownershipInterest: ownershipInterest ?? ""))
+        }
+    }
+    
     private func callFinancialData(year: Int, completion:@escaping ([FinancialStatementsList]) -> Void) {
         //        let mycrtfcKey: String = "28223d93326101b760b633b7ab5469df600a465f"
         //            var baseURL: String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json"
         
-        let anothertestURL :String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json?crtfc_key=28223d93326101b760b633b7ab5469df600a465f&corp_code=00126380&bsns_year=2019&reprt_code=11011&fs_div=OFS"
+        let anothertestURL :String = "https://opendart.fss.or.kr/api/fnlttSinglAcntAll.json?crtfc_key=28223d93326101b760b633b7ab5469df600a465f&corp_code=00126380&bsns_year=2019&reprt_code=11011&fs_div=CFS"
         
         //            let MakedURL = baseURL + "?crtfc_key=\(mycrtfcKey)" + "&corp_code=\(corpCode)" + "&bsns_year=\(year)" + "&reprt_code=11011" + "&fs_div=OFS"
         //            if anothertestURL == MakedURL {
@@ -62,7 +178,9 @@ class CalculatorViewController: UIViewController {
             if error != nil {
                 print("Network Error")
             }
-            guard let data = datas else {return}
+            guard let data = datas else {
+                return
+            }
             
             do {
                 let search = try JSONDecoder().decode(SearchFinancialStatementsResult.self, from: data)
@@ -77,6 +195,9 @@ class CalculatorViewController: UIViewController {
 
 
 struct DataForROE {
-    let  OwnerNetIncome: String
-    let OwnershipInterest: String
+    let beforeOwnerNetIncome: String
+    let afterOwnerNetIncome: String
+    let ownershipInterest: String
 }
+
+
