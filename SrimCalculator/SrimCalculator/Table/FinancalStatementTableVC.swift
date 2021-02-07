@@ -199,6 +199,7 @@ class FinancalStatementTableVC: UIViewController {
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
         DispatchQueue.main.async {
             self.dataSource.append(dataSource)
+            self.dataSource.sort { $0[0] < $1[0] }
             self.dataTable.reload()
         }
     }
