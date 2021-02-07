@@ -197,9 +197,11 @@ class FinancalStatementTableVC: UIViewController {
     static var defaultDoubleValue: Double = -1
     
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
+        let defaultYear: DataTableValueType = .int(0)
+        
         DispatchQueue.main.async {
             self.dataSource.append(dataSource)
-            self.dataSource.sort { $0[0] < $1[0] }
+            self.dataSource.sort { $0.first ?? defaultYear < $1.first ?? defaultYear }
             self.dataTable.reload()
         }
     }
