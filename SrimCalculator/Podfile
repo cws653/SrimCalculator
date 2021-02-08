@@ -12,3 +12,6 @@ target 'SrimCalculator' do
   # Pods for SrimCalculator
 
 end
+
+target 'UITest' do
+end

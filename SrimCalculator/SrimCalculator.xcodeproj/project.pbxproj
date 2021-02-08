@@ -21,6 +21,7 @@
 		9DB60164257B5A6C0097AA87 /* SrimCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DB60163257B5A6C0097AA87 /* SrimCalculatorTests.swift */; };
 		9DD27354258CDEC500C7B8B4 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */; };
 		9DD9096D253C3176007B7A70 /* FinancalStatementTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */; };
+		A56AC218B1F1187043AB680B /* libPods-UITest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D88BAE40EB6E94BF3A18BE43 /* libPods-UITest.a */; };
 		CEE0E66825D1901500CF4E06 /* SearchCorpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A512B253947390011A06A /* SearchCorpVC.swift */; };
 		CEE0E66925D1901500CF4E06 /* APIfunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D025ABA254992AE002B58D6 /* APIfunction.swift */; };
 		CEE0E66A25D1901500CF4E06 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */; };
@@ -30,7 +31,6 @@
 		CEE0E66E25D1901500CF4E06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A5127253947390011A06A /* AppDelegate.swift */; };
 		CEE0E66F25D1901500CF4E06 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D12438D25B08E5E00758498 /* CalculatorViewController.swift */; };
 		CEE0E67025D1901500CF4E06 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3A5129253947390011A06A /* SceneDelegate.swift */; };
-		CEE0E67225D1901500CF4E06 /* Pods_SrimCalculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */; };
 		CEE0E67425D1901500CF4E06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A51322539473B0011A06A /* LaunchScreen.storyboard */; };
 		CEE0E67525D1901500CF4E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A51302539473B0011A06A /* Assets.xcassets */; };
 		CEE0E67625D1901500CF4E06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D3A512D253947390011A06A /* Main.storyboard */; };
@@ -49,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		14EAB012F57349DEDDA8EC17 /* Pods-SrimCalculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.debug.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.debug.xcconfig"; sourceTree = "<group>"; };
+		48585A83811FDBF8B265EF33 /* Pods-UITest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITest.release.xcconfig"; path = "Target Support Files/Pods-UITest/Pods-UITest.release.xcconfig"; sourceTree = "<group>"; };
+		56369286A6C5939ACA77E6B1 /* Pods-UITest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITest.debug.xcconfig"; path = "Target Support Files/Pods-UITest/Pods-UITest.debug.xcconfig"; sourceTree = "<group>"; };
 		6E977C116F5DA1DF4513BB0A /* Pods-SrimCalculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SrimCalculator.release.xcconfig"; path = "Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator.release.xcconfig"; sourceTree = "<group>"; };
 		9D025ABA254992AE002B58D6 /* APIfunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIfunction.swift; sourceTree = "<group>"; };
 		9D12438D25B08E5E00758498 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
@@ -67,10 +69,10 @@
 		9DB60165257B5A6C0097AA87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DD27353258CDEC500C7B8B4 /* ChartsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		9DD9096C253C3176007B7A70 /* FinancalStatementTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancalStatementTableVC.swift; sourceTree = "<group>"; };
-		CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SrimCalculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE0E67B25D1901500CF4E06 /* UITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE0E67C25D1901500CF4E06 /* UITest.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = UITest.plist; path = /Users/user/Desktop/Srim/SrimCalculator/UITest.plist; sourceTree = "<absolute>"; };
 		CEE0E68725D1911B00CF4E06 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D88BAE40EB6E94BF3A18BE43 /* libPods-UITest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEE0E67225D1901500CF4E06 /* Pods_SrimCalculator.framework in Frameworks */,
+				A56AC218B1F1187043AB680B /* libPods-UITest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +105,7 @@
 		3BA85FFF6DD307619B40085B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD625DCE9EE3823E0B4827B6 /* Pods_SrimCalculator.framework */,
+				D88BAE40EB6E94BF3A18BE43 /* libPods-UITest.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -188,6 +190,8 @@
 			children = (
 				14EAB012F57349DEDDA8EC17 /* Pods-SrimCalculator.debug.xcconfig */,
 				6E977C116F5DA1DF4513BB0A /* Pods-SrimCalculator.release.xcconfig */,
+				56369286A6C5939ACA77E6B1 /* Pods-UITest.debug.xcconfig */,
+				48585A83811FDBF8B265EF33 /* Pods-UITest.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -249,7 +253,6 @@
 				CEE0E66725D1901500CF4E06 /* Sources */,
 				CEE0E67125D1901500CF4E06 /* Frameworks */,
 				CEE0E67325D1901500CF4E06 /* Resources */,
-				CEE0E67725D1901500CF4E06 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -385,28 +388,11 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SrimCalculator-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-UITest-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CEE0E67725D1901500CF4E06 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SrimCalculator/Pods-SrimCalculator-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -679,7 +665,7 @@
 		};
 		CEE0E67925D1901500CF4E06 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 14EAB012F57349DEDDA8EC17 /* Pods-SrimCalculator.debug.xcconfig */;
+			baseConfigurationReference = 56369286A6C5939ACA77E6B1 /* Pods-UITest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -698,7 +684,7 @@
 		};
 		CEE0E67A25D1901500CF4E06 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6E977C116F5DA1DF4513BB0A /* Pods-SrimCalculator.release.xcconfig */;
+			baseConfigurationReference = 48585A83811FDBF8B265EF33 /* Pods-UITest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
