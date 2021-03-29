@@ -25,14 +25,7 @@ class FinancalStatementTableVC: UIViewController {
     let EPSWords: [String] = ["기본 및 희석 보통주당이익", "기본 및 희석주당이익", "기본 및 희석주당이익(보통주)", "기본/희석주당순이익", "기본및희석주당계속영업이익", "기본및희석주당이익", "기본및희석주당이익(손실)","기본주당손익", "기본주당순이익", "기본주당이익", "기본주당이익(손실)", "보통주 기본 및 희석주당손익", "보통주 기본 및 희석주당이익(손실)", "보통주 기본및희석주당손익", "보통주 기본주당이익", "보통주기본주당순이익", "보통주기본주당순이익(손실)", "보통주기본주당이익", "보통주희석주당이익", "기본주당이익(손실) (단위:원)","기본주당이익(원)","보통주 기본 및 희석주당이익 (단위: 원)","기본주당계속영업이익","보통주 기본주당손익","기본주당순이익(손실)"]
     
     var dataDelivariedToGraph:[CGFloat] = [20, 10, 30, 20, 50, 100, 10, 10]
-    
-//    var accountDataDelivariedToGraph: [[CGFloat]] = []
     var willUseAccountData: [[Double]] = []
-    
-    //    case account
-    //    case businessProfit
-    //    case netIncome
-    //    case EPS
     
     private let APIInstanceClass = APIClass()
     
@@ -46,9 +39,7 @@ class FinancalStatementTableVC: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-//        if let graphViewController = self.tabBarController?.viewControllers?[1] as? GraphViewController {
-//            graphViewController.takingdataOftable = accountDataDelivariedToGraph
-//        }
+
         if let chartViewController = self.tabBarController?.viewControllers?[2] as? ChartsViewController {
             chartViewController.useForMakingCharts = willUseAccountData
         }
@@ -96,7 +87,6 @@ class FinancalStatementTableVC: UIViewController {
     
     private func setDataValue(_ factor: FinancialStatementsList, dataType: DataValueType) -> DataTableValueType? {
         if self.findKeyWord(structFinancalStatement: factor, list: dataType.words) {
-            //                                let factorData = factor.thstrmAmount
             do {
                 let factorData = try self.roundToBillion(value: Int(factor.thstrmAmount) ?? 0)
                 return DataTableValueType.string(factorData ?? "")
@@ -207,8 +197,11 @@ class FinancalStatementTableVC: UIViewController {
     static var defaultDoubleValue: Double = -1
     
     private func updateDataSourece(_ dataSource: [DataTableValueType]) {
+        let defaultYear: DataTableValueType = .int(0)
+        
         DispatchQueue.main.async {
             self.dataSource.append(dataSource)
+            self.dataSource.sort { $0.first ?? defaultYear < $1.first ?? defaultYear }
             self.dataTable.reload()
         }
     }
@@ -238,8 +231,6 @@ class FinancalStatementTableVC: UIViewController {
         
         for index in 0..<list.count {
             if structFinancalStatement.accountNm == list[index] {
-                //                structFinancalStatement.accountNm.contains(list[word])
-                print(list[index])
                 return true
             }
         }
